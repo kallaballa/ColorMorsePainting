@@ -123,7 +123,6 @@ std::random_device ColorSelector::randDev_;
 
 SVGMorseWriter::SVGMorseWriter(const char* filename, size_t dotsPerRow, size_t dotWidthMM, size_t dotMarginMM, size_t canvasMarginMM) :
 	ofs(filename),
-	dotsPerRow(dotsPerRow),
 	dotWidthPix(dotWidthMM * PIXEL_TO_MM),
 	dotMarginPix(dotMarginMM * PIXEL_TO_MM),
 	canvasMarginPix(canvasMarginMM * PIXEL_TO_MM),

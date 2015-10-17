@@ -17,8 +17,8 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  */
 
-#ifndef COLORMORSEPAINTING_COLORMORSEPAINTING_HPP_
-#define COLORMORSEPAINTING_COLORMORSEPAINTING_HPP_
+#ifndef COLORMORSEPAINTING_HPP_
+#define COLORMORSEPAINTING_HPP_
 
 #include <stdint.h>
 #include <string>
@@ -41,7 +41,6 @@ float PIXEL_TO_MM = 3.5434;
 
 class SVGMorseWriter {
 	std::ofstream ofs;
-	size_t dotsPerRow;
 	size_t dotWidthPix;
 	size_t dotMarginPix;
 	size_t canvasMarginPix;
@@ -52,7 +51,7 @@ class SVGMorseWriter {
 	void writeHeader();
 	void writeFooter();
 public:
-	SVGMorseWriter(const char* filename, size_t pixelPerRow, size_t pixelWidthMM, size_t pixelMarginMM, size_t canvasMarginMM) ;
+	SVGMorseWriter(const char* filename, size_t dotsPerRow, size_t dotWidthMM, size_t dotMarginMM, size_t canvasMarginMM) ;
 	virtual ~SVGMorseWriter();
 
 	void writeDot(size_t x, size_t y, Color c);
@@ -62,4 +61,4 @@ public:
 }
 
 /* namespace kallaballa */
-#endif /* COLORMORSEPAINTING_COLORMORSEPAINTING_HPP_ */
+#endif /* COLORMORSEPAINTING_HPP_ */

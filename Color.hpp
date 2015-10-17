@@ -17,8 +17,8 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  */
 
-#ifndef COLORMORSEPAINTING_COLOR_HPP_
-#define COLORMORSEPAINTING_COLOR_HPP_
+#ifndef COLOR_HPP_
+#define COLOR_HPP_
 
 #include <cstdint>
 #include <cmath>
@@ -43,4 +43,4 @@ namespace kallaballa
 }
 
 /* namespace kallaballa */
-#endif /* COLORMORSEPAINTING_COLOR_HPP_ */
+#endif /* COLOR_HPP_ */

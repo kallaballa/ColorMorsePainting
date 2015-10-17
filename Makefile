@@ -2,7 +2,7 @@ ifdef JAVASCRIPT
 CXX     := em++
 endif
 ifdef JAVASCRIPT
-TARGET  := colorMorsePainting.js
+TARGET  := colorMorsePainting.html
 else
 TARGET  := colorMorsePainting 
 endif
@@ -13,9 +13,9 @@ DEPS    := ${SRCS:.cpp=.dep}
 UNAME := $(shell uname)
 
 ifeq ($(UNAME), Darwin)
-	CXXFLAGS = -std=c++0x -pedantic -Wall
+	CXXFLAGS = -std=c++0x -pedantic -Wall -O3
 else
-	CXXFLAGS = -std=c++0x -pedantic -Wall
+	CXXFLAGS = -std=c++0x -pedantic -Wall -O3
 endif
 
 LIBS    =
@@ -36,7 +36,7 @@ ${DEPS}: %.dep: %.cpp Makefile
 	${CXX} ${CXXFLAGS} -MM $< > $@ 
 
 clean:
-	rm -f *~ *.o *.dep ${TARGET} 
+	rm -f *~ *.o *.dep ${TARGET} colorMorsePainting.js colorMorsePainting.html
 
 distclean: clean
 
