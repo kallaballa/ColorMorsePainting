@@ -207,7 +207,7 @@ int main(int argc, char** argv) {
   size_t dotWidthMM = atoi(argv[2]);
   size_t dotMarginMM = atoi(argv[3]);
   size_t canvasMarginMM = atoi(argv[4]);
-  ColorSelector selector(readColorsFromFile("colors.txt"));
+  ColorSelector selector(readColorsFromFile("pastelColors.txt"));
   SVGMorseWriter stencil("out.svg", dotsPerRow, dotWidthMM, dotMarginMM, canvasMarginMM);
 
   std::string text = argv[5];
