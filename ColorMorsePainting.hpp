@@ -44,8 +44,8 @@ class SVGMorseWriter {
 	size_t dotWidthPix;
 	size_t dotMarginPix;
 	size_t canvasMarginPix;
-  size_t realWidthPix;
-  size_t realHeightPix;
+  size_t backgroundWidthPix;
+  size_t backgroundHeightPix;
   size_t pixelID = 0;
 
 	void writeHeader();

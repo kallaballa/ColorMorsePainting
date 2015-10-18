@@ -89,8 +89,8 @@ SVGMorseWriter::SVGMorseWriter(const char* filename, size_t dotsPerRow, size_t d
 	dotWidthPix(dotWidthMM * PIXEL_TO_MM),
 	dotMarginPix(dotMarginMM * PIXEL_TO_MM),
 	canvasMarginPix(canvasMarginMM * PIXEL_TO_MM),
-	realWidthPix(dotsPerRow * dotWidthPix + dotsPerRow * dotMarginPix + canvasMarginPix * 2 - dotMarginPix),
-	realHeightPix(0) {
+	backgroundWidthPix(dotsPerRow * dotWidthPix + dotsPerRow * dotMarginPix + canvasMarginPix * 2 - dotMarginPix),
+	backgroundHeightPix(0) {
   writeHeader();
 }
 
@@ -116,8 +116,8 @@ void SVGMorseWriter::writeHeader() {
 void SVGMorseWriter::writeFooter() {
   this->ofs << "</g><g id=\"background\">" << std::endl;
   this->ofs << "<rect" << std::endl;
-  this->ofs << "width=\"" << realWidthPix << "\"" << std::endl;
-  this->ofs << "height=\"" << realHeightPix << "\"" << std::endl;
+  this->ofs << "width=\"" << backgroundWidthPix << "\"" << std::endl;
+  this->ofs << "height=\"" << backgroundHeightPix << "\"" << std::endl;
   this->ofs << "x=\"0\"" << std::endl;
   this->ofs << "y=\"0\"" << std::endl;
   this->ofs << "id=\"-1\"" << std::endl;
@@ -141,7 +141,7 @@ void SVGMorseWriter::writeDot(size_t x, size_t y, RGBColor c) {
 	this->ofs << "y=\"" << canvasMarginPix + dotWidthPix * y + dotMarginPix * y << "\"" << std::endl;
 	this->ofs << "id=\"" << pixelID++ << "\"" << std::endl;
 	this->ofs << "style=\"fill:#" + strColor + ";stroke:none;\" />" << std::endl;
-	this->realHeightPix = canvasMarginPix + dotWidthPix * y + dotMarginPix * y + dotWidthPix + canvasMarginPix;
+	this->backgroundHeightPix = canvasMarginPix + dotWidthPix * y + dotMarginPix * y + dotWidthPix + canvasMarginPix;
 }
 
 void SVGMorseWriter::writeDash(size_t x, size_t y, RGBColor c) {
@@ -156,7 +156,7 @@ void SVGMorseWriter::writeDash(size_t x, size_t y, RGBColor c) {
   this->ofs << "y=\"" << canvasMarginPix + dotWidthPix * y + dotMarginPix * y << "\"" << std::endl;
   this->ofs << "id=\"" << pixelID++ << "\"" << std::endl;
   this->ofs << "style=\"fill:#" + strColor + ";stroke:none;\" />" << std::endl;
-  this->realHeightPix = canvasMarginPix + dotWidthPix * y + dotMarginPix * y + dotWidthPix + canvasMarginPix;
+  this->backgroundHeightPix = canvasMarginPix + dotWidthPix * y + dotMarginPix * y + dotWidthPix + canvasMarginPix;
 }
 } /* namespace kallaballa */
 
@@ -184,8 +184,8 @@ int main(int argc, char** argv) {
 
   size_t x = 0;
   size_t y = 0;
-  std::cerr << morse.str() << std::endl;
   RGBColor color = selector.next();
+
   for (const char& c : morse.str()) {
     if(c == '-') {
       if(x + 3 > dotsPerRow) {
@@ -202,7 +202,7 @@ int main(int argc, char** argv) {
       }
 
       stencil.writeDot(x, y, color);
-      x++;
+      ++x;
     } else if(c == ' '){
       color = selector.next();
     }
