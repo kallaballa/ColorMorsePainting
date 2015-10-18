@@ -27,7 +27,7 @@ There are four parameters you need to supply:
 
 The program takes the input text from stdin and writes the generated svg to stdout
 
-    echo "Man kann mit einem Computer Kunst und Schönheit schaffen" | ./colorMorsePainting 18 5 1 5 > painting.svg 
+    echo "Man kann mit einem Computer Kunst und Schoenheit schaffen" | ./colorMorsePainting 18 5 1 5 > painting.svg 
 
 ![Morse Painting: Kunst und Schönheit](https://github.com/kallaballa/ColorMorsePainting/raw/master/example/painting.png "Morse Painting: Kunst und Schönheit")
 
