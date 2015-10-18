@@ -143,12 +143,7 @@ namespace kallaballa
         return lastColor_ = palette_[uni_(rng_)];
       } else {
         RGBColor selected;
-        // quick and dirty color "contrast" ensurance
-        double deltaE;
-        while((deltaE = ciede2000_distance(lastColor_, selected = palette_[uni_(rng_)] )) < 50.0) {
-          std::cerr << deltaE << std::endl;
-        }
-        std::cerr << deltaE << std::endl;
+        while(ciede2000_distance(lastColor_, selected = palette_[uni_(rng_)] ) < 50.0) {}
         return lastColor_ = selected;;
       }
     }
