@@ -29,6 +29,6 @@ The program takes the input text from stdin and write the generated svg to stdou
 
    echo "Man kann mit einem Computer Kunst und Schönheit schaffen" | ./colorMorsePainting 18 5 1 5 > painting.svg 
 
-![Morse Painting: Kunst und Schönheit](https://github.com/kallaballa/ColorMorsePainting/raw/master/painting.svg "Morse Painting: Kunst und Schönheit")
+![Morse Painting: Kunst und Schönheit](https://github.com/kallaballa/ColorMorsePainting/raw/master/example/painting.png "Morse Painting: Kunst und Schönheit")
 
 
