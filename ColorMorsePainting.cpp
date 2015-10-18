@@ -79,9 +79,6 @@ std::map<const char, const std::string> morseMap = {
     {'\"', ".-..-"},
     {'\x04', "...-.-"}, //EOT = SK
 };
-
-
-
 } /* namespace kallaballa */
 
 int main(int argc, char** argv) {
