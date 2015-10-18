@@ -119,14 +119,12 @@ namespace kallaballa
   }
 
   RGBColor ColorSelector::next() {
-    if(lastColor_ == 0) {
-      return lastColor_ = palette_[uni_(rng_)];
-    } else {
       RGBColor selected;
       while(ciede2000_distance(lastColor_, selected = palette_[uni_(rng_)] ) < 50.0) {}
       return lastColor_ = selected;;
-    }
   }
+
+  std::random_device ColorSelector::randDev_;
 }
 
 /* namespace kallaballa */
