@@ -19,7 +19,7 @@ The program uses a predefined color palette stored as line separated hex rgb val
 
 ## Example
 
-There are four paramters you need to supply:
+There are four parameters you need to supply:
 * Width of the whole painting measured as (morse) dots per row
 * Width of a dot in millimeters
 * Width of a dot margin in millimeters
