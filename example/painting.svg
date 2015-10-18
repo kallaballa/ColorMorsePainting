@@ -1,0 +1,821 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg 
+xmlns:dc="http://purl.org/dc/elements/1.1/"
+xmlns:cc="http://creativecommons.org/ns#"
+xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+xmlns:svg="http://www.w3.org/2000/svg"
+xmlns:xlink="http://www.w3.org/1999/xlink"
+xmlns="http://www.w3.org/2000/svg"
+version="1.1"
+id="svg2">
+<defs><g id="foreground">
+<rect
+width="57"
+height="17"
+x="17"
+y="17"
+id="0"
+style="fill:#ffff84;stroke:none;" />
+<rect
+width="57"
+height="17"
+x="77"
+y="17"
+id="1"
+style="fill:#ffff84;stroke:none;" />
+<rect
+width="17"
+height="17"
+x="137"
+y="17"
+id="2"
+style="fill:#a827fe;stroke:none;" />
+<rect
+width="57"
+height="17"
+x="157"
+y="17"
+id="3"
+style="fill:#a827fe;stroke:none;" />
+<rect
+width="57"
+height="17"
+x="217"
+y="17"
+id="4"
+style="fill:#a4f0b7;stroke:none;" />
+<rect
+width="17"
+height="17"
+x="277"
+y="17"
+id="5"
+style="fill:#a4f0b7;stroke:none;" />
+<rect
+width="57"
+height="17"
+x="297"
+y="17"
+id="6"
+style="fill:#e1e1a8;stroke:none;" />
+<rect
+width="17"
+height="17"
+x="357"
+y="17"
+id="7"
+style="fill:#e1e1a8;stroke:none;" />
+<rect
+width="57"
+height="17"
+x="17"
+y="37"
+id="8"
+style="fill:#e1e1a8;stroke:none;" />
+<rect
+width="17"
+height="17"
+x="77"
+y="37"
+id="9"
+style="fill:#cb59e8;stroke:none;" />
+<rect
+width="57"
+height="17"
+x="97"
+y="37"
+id="10"
+style="fill:#cb59e8;stroke:none;" />
+<rect
+width="57"
+height="17"
+x="157"
+y="37"
+id="11"
+style="fill:#d1d17a;stroke:none;" />
+<rect
+width="17"
+height="17"
+x="217"
+y="37"
+id="12"
+style="fill:#d1d17a;stroke:none;" />
+<rect
+width="57"
+height="17"
+x="237"
+y="37"
+id="13"
+style="fill:#a27afe;stroke:none;" />
+<rect
+width="17"
+height="17"
+x="297"
+y="37"
+id="14"
+style="fill:#a27afe;stroke:none;" />
+<rect
+width="57"
+height="17"
+x="317"
+y="37"
+id="15"
+style="fill:#1fcb4a;stroke:none;" />
+<rect
+width="57"
+height="17"
+x="17"
+y="57"
+id="16"
+style="fill:#1fcb4a;stroke:none;" />
+<rect
+width="17"
+height="17"
+x="77"
+y="57"
+id="17"
+style="fill:#d54fd5;stroke:none;" />
+<rect
+width="17"
+height="17"
+x="97"
+y="57"
+id="18"
+style="fill:#d54fd5;stroke:none;" />
+<rect
+width="57"
+height="17"
+x="117"
+y="57"
+id="19"
+style="fill:#4ae371;stroke:none;" />
+<rect
+width="17"
+height="17"
+x="177"
+y="57"
+id="20"
+style="fill:#fffdf9;stroke:none;" />
+<rect
+width="17"
+height="17"
+x="197"
+y="57"
+id="21"
+style="fill:#8d18ab;stroke:none;" />
+<rect
+width="17"
+height="17"
+x="217"
+y="57"
+id="22"
+style="fill:#8d18ab;stroke:none;" />
+<rect
+width="57"
+height="17"
+x="237"
+y="57"
+id="23"
+style="fill:#d7d78a;stroke:none;" />
+<rect
+width="17"
+height="17"
+x="297"
+y="57"
+id="24"
+style="fill:#d7d78a;stroke:none;" />
+<rect
+width="17"
+height="17"
+x="317"
+y="57"
+id="25"
+style="fill:#ffbbff;stroke:none;" />
+<rect
+width="57"
+height="17"
+x="17"
+y="77"
+id="26"
+style="fill:#1ffef3;stroke:none;" />
+<rect
+width="57"
+height="17"
+x="77"
+y="77"
+id="27"
+style="fill:#1ffef3;stroke:none;" />
+<rect
+width="57"
+height="17"
+x="137"
+y="77"
+id="28"
+style="fill:#c269fe;stroke:none;" />
+<rect
+width="17"
+height="17"
+x="197"
+y="77"
+id="29"
+style="fill:#c269fe;stroke:none;" />
+<rect
+width="57"
+height="17"
+x="217"
+y="77"
+id="30"
+style="fill:#c269fe;stroke:none;" />
+<rect
+width="17"
+height="17"
+x="277"
+y="77"
+id="31"
+style="fill:#c269fe;stroke:none;" />
+<rect
+width="57"
+height="17"
+x="297"
+y="77"
+id="32"
+style="fill:#ffcb2f;stroke:none;" />
+<rect
+width="57"
+height="17"
+x="17"
+y="97"
+id="33"
+style="fill:#ffcb2f;stroke:none;" />
+<rect
+width="57"
+height="17"
+x="77"
+y="97"
+id="34"
+style="fill:#ffcb2f;stroke:none;" />
+<rect
+width="57"
+height="17"
+x="137"
+y="97"
+id="35"
+style="fill:#c4abfe;stroke:none;" />
+<rect
+width="57"
+height="17"
+x="197"
+y="97"
+id="36"
+style="fill:#c4abfe;stroke:none;" />
+<rect
+width="17"
+height="17"
+x="257"
+y="97"
+id="37"
+style="fill:#ffffb5;stroke:none;" />
+<rect
+width="57"
+height="17"
+x="277"
+y="97"
+id="38"
+style="fill:#ffffb5;stroke:none;" />
+<rect
+width="57"
+height="17"
+x="17"
+y="117"
+id="39"
+style="fill:#ffffb5;stroke:none;" />
+<rect
+width="17"
+height="17"
+x="77"
+y="117"
+id="40"
+style="fill:#ffffb5;stroke:none;" />
+<rect
+width="17"
+height="17"
+x="97"
+y="117"
+id="41"
+style="fill:#ffc4ff;stroke:none;" />
+<rect
+width="17"
+height="17"
+x="117"
+y="117"
+id="42"
+style="fill:#ffc4ff;stroke:none;" />
+<rect
+width="57"
+height="17"
+x="137"
+y="117"
+id="43"
+style="fill:#ffc4ff;stroke:none;" />
+<rect
+width="57"
+height="17"
+x="197"
+y="117"
+id="44"
+style="fill:#c0ff97;stroke:none;" />
+<rect
+width="17"
+height="17"
+x="257"
+y="117"
+id="45"
+style="fill:#ffa4ff;stroke:none;" />
+<rect
+width="17"
+height="17"
+x="277"
+y="117"
+id="46"
+style="fill:#ffff99;stroke:none;" />
+<rect
+width="57"
+height="17"
+x="297"
+y="117"
+id="47"
+style="fill:#ffff99;stroke:none;" />
+<rect
+width="17"
+height="17"
+x="357"
+y="117"
+id="48"
+style="fill:#ffff99;stroke:none;" />
+<rect
+width="57"
+height="17"
+x="17"
+y="137"
+id="49"
+style="fill:#fafbdf;stroke:none;" />
+<rect
+width="17"
+height="17"
+x="77"
+y="137"
+id="50"
+style="fill:#fafbdf;stroke:none;" />
+<rect
+width="57"
+height="17"
+x="97"
+y="137"
+id="51"
+style="fill:#fafbdf;stroke:none;" />
+<rect
+width="17"
+height="17"
+x="157"
+y="137"
+id="52"
+style="fill:#ba21e0;stroke:none;" />
+<rect
+width="17"
+height="17"
+x="177"
+y="137"
+id="53"
+style="fill:#ba21e0;stroke:none;" />
+<rect
+width="57"
+height="17"
+x="197"
+y="137"
+id="54"
+style="fill:#ba21e0;stroke:none;" />
+<rect
+width="57"
+height="17"
+x="257"
+y="137"
+id="55"
+style="fill:#ff800d;stroke:none;" />
+<rect
+width="17"
+height="17"
+x="317"
+y="137"
+id="56"
+style="fill:#ff800d;stroke:none;" />
+<rect
+width="17"
+height="17"
+x="337"
+y="137"
+id="57"
+style="fill:#f206ff;stroke:none;" />
+<rect
+width="17"
+height="17"
+x="357"
+y="137"
+id="58"
+style="fill:#f206ff;stroke:none;" />
+<rect
+width="17"
+height="17"
+x="17"
+y="157"
+id="59"
+style="fill:#f206ff;stroke:none;" />
+<rect
+width="57"
+height="17"
+x="37"
+y="157"
+id="60"
+style="fill:#ffffe3;stroke:none;" />
+<rect
+width="17"
+height="17"
+x="97"
+y="157"
+id="61"
+style="fill:#62fdce;stroke:none;" />
+<rect
+width="17"
+height="17"
+x="117"
+y="157"
+id="62"
+style="fill:#62fdce;stroke:none;" />
+<rect
+width="57"
+height="17"
+x="137"
+y="157"
+id="63"
+style="fill:#62fdce;stroke:none;" />
+<rect
+width="57"
+height="17"
+x="197"
+y="157"
+id="64"
+style="fill:#9a03fe;stroke:none;" />
+<rect
+width="17"
+height="17"
+x="257"
+y="157"
+id="65"
+style="fill:#9a03fe;stroke:none;" />
+<rect
+width="57"
+height="17"
+x="277"
+y="157"
+id="66"
+style="fill:#fff1e6;stroke:none;" />
+<rect
+width="17"
+height="17"
+x="337"
+y="157"
+id="67"
+style="fill:#fff1e6;stroke:none;" />
+<rect
+width="17"
+height="17"
+x="357"
+y="157"
+id="68"
+style="fill:#fff1e6;stroke:none;" />
+<rect
+width="17"
+height="17"
+x="17"
+y="177"
+id="69"
+style="fill:#eaea8a;stroke:none;" />
+<rect
+width="17"
+height="17"
+x="37"
+y="177"
+id="70"
+style="fill:#eaea8a;stroke:none;" />
+<rect
+width="17"
+height="17"
+x="57"
+y="177"
+id="71"
+style="fill:#eaea8a;stroke:none;" />
+<rect
+width="57"
+height="17"
+x="77"
+y="177"
+id="72"
+style="fill:#a41cc6;stroke:none;" />
+<rect
+width="17"
+height="17"
+x="137"
+y="177"
+id="73"
+style="fill:#a41cc6;stroke:none;" />
+<rect
+width="57"
+height="17"
+x="157"
+y="177"
+id="74"
+style="fill:#a41cc6;stroke:none;" />
+<rect
+width="17"
+height="17"
+x="217"
+y="177"
+id="75"
+style="fill:#a41cc6;stroke:none;" />
+<rect
+width="17"
+height="17"
+x="237"
+y="177"
+id="76"
+style="fill:#dfffca;stroke:none;" />
+<rect
+width="17"
+height="17"
+x="257"
+y="177"
+id="77"
+style="fill:#dfffca;stroke:none;" />
+<rect
+width="17"
+height="17"
+x="277"
+y="177"
+id="78"
+style="fill:#dfffca;stroke:none;" />
+<rect
+width="17"
+height="17"
+x="297"
+y="177"
+id="79"
+style="fill:#dfffca;stroke:none;" />
+<rect
+width="57"
+height="17"
+x="317"
+y="177"
+id="80"
+style="fill:#d900d9;stroke:none;" />
+<rect
+width="17"
+height="17"
+x="17"
+y="197"
+id="81"
+style="fill:#d900d9;stroke:none;" />
+<rect
+width="17"
+height="17"
+x="37"
+y="197"
+id="82"
+style="fill:#ffffaa;stroke:none;" />
+<rect
+width="17"
+height="17"
+x="57"
+y="197"
+id="83"
+style="fill:#ffffaa;stroke:none;" />
+<rect
+width="17"
+height="17"
+x="77"
+y="197"
+id="84"
+style="fill:#ffffaa;stroke:none;" />
+<rect
+width="17"
+height="17"
+x="97"
+y="197"
+id="85"
+style="fill:#ffffaa;stroke:none;" />
+<rect
+width="17"
+height="17"
+x="117"
+y="197"
+id="86"
+style="fill:#e7a9fe;stroke:none;" />
+<rect
+width="17"
+height="17"
+x="137"
+y="197"
+id="87"
+style="fill:#ffbe28;stroke:none;" />
+<rect
+width="17"
+height="17"
+x="157"
+y="197"
+id="88"
+style="fill:#ffbe28;stroke:none;" />
+<rect
+width="57"
+height="17"
+x="177"
+y="197"
+id="89"
+style="fill:#bcb4f3;stroke:none;" />
+<rect
+width="17"
+height="17"
+x="237"
+y="197"
+id="90"
+style="fill:#db00db;stroke:none;" />
+<rect
+width="17"
+height="17"
+x="257"
+y="197"
+id="91"
+style="fill:#db00db;stroke:none;" />
+<rect
+width="17"
+height="17"
+x="277"
+y="197"
+id="92"
+style="fill:#db00db;stroke:none;" />
+<rect
+width="57"
+height="17"
+x="297"
+y="197"
+id="93"
+style="fill:#d19c67;stroke:none;" />
+<rect
+width="17"
+height="17"
+x="357"
+y="197"
+id="94"
+style="fill:#d19c67;stroke:none;" />
+<rect
+width="57"
+height="17"
+x="17"
+y="217"
+id="95"
+style="fill:#d19c67;stroke:none;" />
+<rect
+width="17"
+height="17"
+x="77"
+y="217"
+id="96"
+style="fill:#d19c67;stroke:none;" />
+<rect
+width="17"
+height="17"
+x="97"
+y="217"
+id="97"
+style="fill:#9a03fe;stroke:none;" />
+<rect
+width="17"
+height="17"
+x="117"
+y="217"
+id="98"
+style="fill:#9a03fe;stroke:none;" />
+<rect
+width="17"
+height="17"
+x="137"
+y="217"
+id="99"
+style="fill:#9a03fe;stroke:none;" />
+<rect
+width="17"
+height="17"
+x="157"
+y="217"
+id="100"
+style="fill:#9a03fe;stroke:none;" />
+<rect
+width="17"
+height="17"
+x="177"
+y="217"
+id="101"
+style="fill:#dfe32d;stroke:none;" />
+<rect
+width="57"
+height="17"
+x="197"
+y="217"
+id="102"
+style="fill:#dfe32d;stroke:none;" />
+<rect
+width="17"
+height="17"
+x="257"
+y="217"
+id="103"
+style="fill:#7ba7e1;stroke:none;" />
+<rect
+width="17"
+height="17"
+x="277"
+y="217"
+id="104"
+style="fill:#7ba7e1;stroke:none;" />
+<rect
+width="57"
+height="17"
+x="297"
+y="217"
+id="105"
+style="fill:#7ba7e1;stroke:none;" />
+<rect
+width="17"
+height="17"
+x="357"
+y="217"
+id="106"
+style="fill:#7ba7e1;stroke:none;" />
+<rect
+width="17"
+height="17"
+x="17"
+y="237"
+id="107"
+style="fill:#e6e671;stroke:none;" />
+<rect
+width="17"
+height="17"
+x="37"
+y="237"
+id="108"
+style="fill:#e6e671;stroke:none;" />
+<rect
+width="57"
+height="17"
+x="57"
+y="237"
+id="109"
+style="fill:#e6e671;stroke:none;" />
+<rect
+width="17"
+height="17"
+x="117"
+y="237"
+id="110"
+style="fill:#e6e671;stroke:none;" />
+<rect
+width="17"
+height="17"
+x="137"
+y="237"
+id="111"
+style="fill:#ff4848;stroke:none;" />
+<rect
+width="57"
+height="17"
+x="157"
+y="237"
+id="112"
+style="fill:#d1d17a;stroke:none;" />
+<rect
+width="17"
+height="17"
+x="217"
+y="237"
+id="113"
+style="fill:#d1d17a;stroke:none;" />
+</g><g id="background">
+<rect
+width="391"
+height="271"
+x="0"
+y="0"
+id="-1"
+style="stroke-width: 0px; fill: #000000;"/>
+</g></defs>
+<use xlink:href="#background" />
+<use xlink:href="#foreground" />
+</svg>
