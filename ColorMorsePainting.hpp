@@ -54,8 +54,8 @@ public:
 	SVGMorseWriter(const char* filename, size_t dotsPerRow, size_t dotWidthMM, size_t dotMarginMM, size_t canvasMarginMM) ;
 	virtual ~SVGMorseWriter();
 
-	void writeDot(size_t x, size_t y, Color c);
-  void writeDash(size_t x, size_t y, Color c);
+	void writeDot(size_t x, size_t y, RGBColor c);
+  void writeDash(size_t x, size_t y, RGBColor c);
 
 };
 }

@@ -23,7 +23,6 @@
 #include <sstream>
 #include <fstream>
 #include <string>
-#include <random>
 
 namespace kallaballa {
 
@@ -83,42 +82,6 @@ std::map<const char, const std::string> morseMap = {
     {'\x04', "...-.-"}, //EOT = SK
 };
 
-std::vector<Color> readColorsFromFile(const std::string& filename) {
-  std::ifstream ifs(filename);
-  std::vector<Color> colors;
-  std::string line;
-  Color c;
-  while (std::getline(ifs, line)) {
-    c = strtol(line.substr(1).c_str(), NULL, 16);
-    colors.push_back(c);
-  }
-
-  return colors;
-}
-
-class ColorSelector {
-  static std::random_device randDev_;
-  Color lastColor_ = 0;
-  std::vector<Color> palette_;
-
-  std::mt19937 rng_;
-  std::uniform_int_distribution<int> uni_;
-public:
-  ColorSelector(std::vector<Color> palette) : palette_(palette), rng_(randDev_()), uni_(0,palette.size() - 1) {
-  }
-
-  Color next() {
-    if(lastColor_ == 0) {
-      return lastColor_ = palette_[uni_(rng_)];
-    } else {
-      Color selected;
-      // quick and dirty color "contrast" ensurance
-      while(euclideanDistance(lastColor_, selected = palette_[uni_(rng_)] ) < 100) {}
-      return lastColor_ = selected;;
-    }
-  }
-};
-
 std::random_device ColorSelector::randDev_;
 
 SVGMorseWriter::SVGMorseWriter(const char* filename, size_t dotsPerRow, size_t dotWidthMM, size_t dotMarginMM, size_t canvasMarginMM) :
@@ -147,7 +110,7 @@ void SVGMorseWriter::writeHeader() {
 	this->ofs << "xmlns=\"http://www.w3.org/2000/svg\"" << std::endl;
 	this->ofs << "version=\"1.1\"" << std::endl;
 	this->ofs << "id=\"svg2\">" << std::endl;
-	this->ofs << "<g id=\"foreground\">" << std::endl;
+	this->ofs << "<defs><g id=\"foreground\">" << std::endl;
 }
 
 void SVGMorseWriter::writeFooter() {
@@ -159,12 +122,14 @@ void SVGMorseWriter::writeFooter() {
   this->ofs << "y=\"0\"" << std::endl;
   this->ofs << "id=\"-1\"" << std::endl;
   this->ofs << "style=\"stroke-width: 0px; fill: #000000;\"/>" << std::endl;
-	this->ofs << "</g>" << std::endl;
+	this->ofs << "</g></defs>" << std::endl;
+	//do the drawing in the right order
+	this->ofs << "<use xlink:href=\"#background\" />" << std::endl;
 	this->ofs << "<use xlink:href=\"#foreground\" />" << std::endl;
 	this->ofs << "</svg>" << std::endl;
 }
 
-void SVGMorseWriter::writeDot(size_t x, size_t y, Color c) {
+void SVGMorseWriter::writeDot(size_t x, size_t y, RGBColor c) {
   std::stringstream sstream;
   sstream << std::setfill('0') << std::setw(6) << std::hex << c;
   std::string strColor = sstream.str();
@@ -179,7 +144,7 @@ void SVGMorseWriter::writeDot(size_t x, size_t y, Color c) {
 	this->realHeightPix = canvasMarginPix + dotWidthPix * y + dotMarginPix * y + dotWidthPix + canvasMarginPix;
 }
 
-void SVGMorseWriter::writeDash(size_t x, size_t y, Color c) {
+void SVGMorseWriter::writeDash(size_t x, size_t y, RGBColor c) {
   std::stringstream sstream;
   sstream << std::setfill('0') << std::setw(6) << std::hex << c;
   std::string strColor = sstream.str();
@@ -220,7 +185,7 @@ int main(int argc, char** argv) {
   size_t x = 0;
   size_t y = 0;
   std::cerr << morse.str() << std::endl;
-  Color color = selector.next();
+  RGBColor color = selector.next();
   for (const char& c : morse.str()) {
     if(c == '-') {
       if(x + 3 > dotsPerRow) {
