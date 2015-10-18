@@ -6,7 +6,7 @@ TARGET  := colorMorsePainting.html
 else
 TARGET  := colorMorsePainting 
 endif
-SRCS    := ColorMorsePainting.cpp
+SRCS    := ColorMorsePainting.cpp CIEDE2000.cpp
 OBJS    := ${SRCS:.cpp=.o} 
 DEPS    := ${SRCS:.cpp=.dep} 
 
@@ -25,6 +25,11 @@ LIBS    =
 all: release
 
 release: ${TARGET}
+
+debug: CXXFLAGS += -g3 -O0 -rdynamic
+debug: LDFLAGS += -Wl,--export-dynamic
+debug: LIBS+= -lbfd
+debug: ${TARGET}
 
 ${TARGET}: ${OBJS} 
 	${CXX} ${LDFLAGS} -o $@ $^ ${LIBS} 
