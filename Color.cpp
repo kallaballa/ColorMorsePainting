@@ -19,6 +19,9 @@
 
 #include "Color.hpp"
 #include <fstream>
+#ifdef COLORDIST_DEBUG
+#include <iostream>
+#endif
 
 namespace kallaballa
 {
@@ -94,13 +97,15 @@ namespace kallaballa
       y = ( 7.787 * y ) + ( 16 / 116 );
 
     if ( z > 0.008856 )
-      z = pow(z, (double)( 1.0/3.0  ));
+      z = pow(z, ((double) 1.0/3.0  ));
     else
       z = ( 7.787 * z ) + ( 16 / 116 );
 
     lab[0] = ( 116 * y ) - 16;
     lab[1] = 500 * ( x - y );
     lab[2] = 200 * ( y - z );
+
+    lab[0] = lab[0] < 0.0 ? 0.0 : lab[0];
 
     return lab;
   }
@@ -120,7 +125,17 @@ namespace kallaballa
 
   RGBColor ColorSelector::next() {
       RGBColor selected;
+
+#ifdef COLORDIST_DEBUG
+      double deltaE;
+      while((deltaE = ciede2000_distance(lastColor_, selected = palette_[uni_(rng_)] )) < 50.0) {
+        std::cerr << deltaE << std::endl;
+      }
+      std::cerr << deltaE << std::endl;
+#else
       while(ciede2000_distance(lastColor_, selected = palette_[uni_(rng_)] ) < 50.0) {}
+#endif
+
       return lastColor_ = selected;;
   }
 
