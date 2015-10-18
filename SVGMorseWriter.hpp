@@ -22,24 +22,25 @@
 
 #include "Color.hpp"
 #include <stdint.h>
-#include <fstream>
+#include <iostream>
 
 namespace kallaballa {
 
   class SVGMorseWriter {
     const double PIXEL_TO_MM = 3.5434;
 
-    std::ofstream ofs;
+    std::ostream& os;
     size_t dotWidthPix;
     size_t dotMarginPix;
     size_t canvasMarginPix;
     size_t backgroundWidthPix;
     size_t backgroundHeightPix;
-    size_t pixelID = 0;
+    size_t glyphID = 0;
 
     void writeHeader();
     void writeFooter();
   public:
+    SVGMorseWriter(std::ostream& ostream, size_t dotsPerRow, size_t dotWidthMM, size_t dotMarginMM, size_t canvasMarginMM) ;
     SVGMorseWriter(const char* filename, size_t dotsPerRow, size_t dotWidthMM, size_t dotMarginMM, size_t canvasMarginMM) ;
     virtual ~SVGMorseWriter();
 

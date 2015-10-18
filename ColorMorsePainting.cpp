@@ -26,8 +26,6 @@
 
 namespace kallaballa {
 
-using std::string;
-
 std::map<const char, const std::string> morseMap = {
     {' ', " "},
     {'\n', "\n"},
@@ -89,8 +87,8 @@ std::map<const char, const std::string> morseMap = {
 int main(int argc, char** argv) {
   using namespace kallaballa;
 
-  if (argc != 6) {
-    std::cerr << "Usage: PixelMorse <pixels per row> <pixel width mm> <pixel margin mm> <board margin mm> <text>" << std::endl;
+  if (argc != 5) {
+    std::cerr << "Usage: colorMorsePainting <dots per row> <dot width mm> <dot margin mm> <canvas margin mm>" << std::endl;
     return 1;
   }
 
@@ -98,38 +96,39 @@ int main(int argc, char** argv) {
   size_t dotWidthMM = atoi(argv[2]);
   size_t dotMarginMM = atoi(argv[3]);
   size_t canvasMarginMM = atoi(argv[4]);
-  ColorSelector selector(readColorsFromFile("pastelColors.txt"));
-  SVGMorseWriter writer("out.svg", dotsPerRow, dotWidthMM, dotMarginMM, canvasMarginMM);
+  ColorSelector selector(readColorsFromFile("colors.txt"));
+  SVGMorseWriter writer(std::cout, dotsPerRow, dotWidthMM, dotMarginMM, canvasMarginMM);
 
-  std::string text = argv[5];
-  std::stringstream morse;
-
-  for(const char& c : text) {
-    morse << morseMap[std::toupper(c)] << " ";
-  }
-
+  std::string line;
+  std::string morse;
   size_t x = 0;
   size_t y = 0;
   RGBColor color = selector.next();
 
-  for (const char& c : morse.str()) {
-    if(c == '-') {
-      if(x + 3 > dotsPerRow) {
-        x = 0;
-        ++y;
-      }
+  while(std::getline(std::cin, line))
+  {
+    for(const char& c : line) {
+      morse = morseMap[std::toupper(c)];
 
-      writer.writeDash(x, y, color);
-      x+=3;
-    } else if(c == '.'){
-      if(x + 1 > dotsPerRow) {
-        x = 0;
-        ++y;
-      }
+      for (const char& m : morse) {
+        if(m == '-') {
+          if(x + 3 > dotsPerRow) {
+            x = 0;
+            ++y;
+          }
 
-      writer.writeDot(x, y, color);
-      ++x;
-    } else if(c == ' '){
+          writer.writeDash(x, y, color);
+          x+=3;
+        } else if(m == '.'){
+          if(x + 1 > dotsPerRow) {
+            x = 0;
+            ++y;
+          }
+
+          writer.writeDot(x, y, color);
+          ++x;
+        }
+      }
       color = selector.next();
     }
   }

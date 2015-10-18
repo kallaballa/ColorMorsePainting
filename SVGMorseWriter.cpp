@@ -18,13 +18,14 @@
  */
 
 #include "SVGMorseWriter.hpp"
+#include <fstream>
 #include <sstream>
 #include <iomanip>
 
 namespace kallaballa {
 
-  SVGMorseWriter::SVGMorseWriter(const char* filename, size_t dotsPerRow, size_t dotWidthMM, size_t dotMarginMM, size_t canvasMarginMM) :
-    ofs(filename),
+  SVGMorseWriter::SVGMorseWriter(std::ostream& os, size_t dotsPerRow, size_t dotWidthMM, size_t dotMarginMM, size_t canvasMarginMM) :
+    os(os),
     dotWidthPix(dotWidthMM * PIXEL_TO_MM),
     dotMarginPix(dotMarginMM * PIXEL_TO_MM),
     canvasMarginPix(canvasMarginMM * PIXEL_TO_MM),
@@ -35,37 +36,36 @@ namespace kallaballa {
 
   SVGMorseWriter::~SVGMorseWriter() {
     writeFooter();
-    this->ofs.close();
   }
 
   void SVGMorseWriter::writeHeader() {
-    this->ofs << "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>"<< std::endl;
-    this->ofs << "<svg " << std::endl;
-    this->ofs << "xmlns:dc=\"http://purl.org/dc/elements/1.1/\"" << std::endl;
-    this->ofs << "xmlns:cc=\"http://creativecommons.org/ns#\"" << std::endl;
-    this->ofs << "xmlns:rdf=\"http://www.w3.org/1999/02/22-rdf-syntax-ns#\"" << std::endl;
-    this->ofs << "xmlns:svg=\"http://www.w3.org/2000/svg\"" << std::endl;
-    this->ofs << "xmlns:xlink=\"http://www.w3.org/1999/xlink\"" << std::endl;
-    this->ofs << "xmlns=\"http://www.w3.org/2000/svg\"" << std::endl;
-    this->ofs << "version=\"1.1\"" << std::endl;
-    this->ofs << "id=\"svg2\">" << std::endl;
-    this->ofs << "<defs><g id=\"foreground\">" << std::endl;
+    this->os << "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>"<< std::endl;
+    this->os << "<svg " << std::endl;
+    this->os << "xmlns:dc=\"http://purl.org/dc/elements/1.1/\"" << std::endl;
+    this->os << "xmlns:cc=\"http://creativecommons.org/ns#\"" << std::endl;
+    this->os << "xmlns:rdf=\"http://www.w3.org/1999/02/22-rdf-syntax-ns#\"" << std::endl;
+    this->os << "xmlns:svg=\"http://www.w3.org/2000/svg\"" << std::endl;
+    this->os << "xmlns:xlink=\"http://www.w3.org/1999/xlink\"" << std::endl;
+    this->os << "xmlns=\"http://www.w3.org/2000/svg\"" << std::endl;
+    this->os << "version=\"1.1\"" << std::endl;
+    this->os << "id=\"svg2\">" << std::endl;
+    this->os << "<defs><g id=\"foreground\">" << std::endl;
   }
 
   void SVGMorseWriter::writeFooter() {
-    this->ofs << "</g><g id=\"background\">" << std::endl;
-    this->ofs << "<rect" << std::endl;
-    this->ofs << "width=\"" << backgroundWidthPix << "\"" << std::endl;
-    this->ofs << "height=\"" << backgroundHeightPix << "\"" << std::endl;
-    this->ofs << "x=\"0\"" << std::endl;
-    this->ofs << "y=\"0\"" << std::endl;
-    this->ofs << "id=\"-1\"" << std::endl;
-    this->ofs << "style=\"stroke-width: 0px; fill: #000000;\"/>" << std::endl;
-    this->ofs << "</g></defs>" << std::endl;
+    this->os << "</g><g id=\"background\">" << std::endl;
+    this->os << "<rect" << std::endl;
+    this->os << "width=\"" << backgroundWidthPix << "\"" << std::endl;
+    this->os << "height=\"" << backgroundHeightPix << "\"" << std::endl;
+    this->os << "x=\"0\"" << std::endl;
+    this->os << "y=\"0\"" << std::endl;
+    this->os << "id=\"-1\"" << std::endl;
+    this->os << "style=\"stroke-width: 0px; fill: #000000;\"/>" << std::endl;
+    this->os << "</g></defs>" << std::endl;
     //do the drawing in the right order
-    this->ofs << "<use xlink:href=\"#background\" />" << std::endl;
-    this->ofs << "<use xlink:href=\"#foreground\" />" << std::endl;
-    this->ofs << "</svg>" << std::endl;
+    this->os << "<use xlink:href=\"#background\" />" << std::endl;
+    this->os << "<use xlink:href=\"#foreground\" />" << std::endl;
+    this->os << "</svg>" << std::endl;
   }
 
   void SVGMorseWriter::writeDot(size_t x, size_t y, RGBColor c) {
@@ -73,13 +73,13 @@ namespace kallaballa {
     sstream << std::setfill('0') << std::setw(6) << std::hex << c;
     std::string strColor = sstream.str();
 
-    this->ofs << "<rect" << std::endl;
-    this->ofs << "width=\"" << dotWidthPix << "\"" << std::endl;
-    this->ofs << "height=\"" << dotWidthPix << "\"" << std::endl;
-    this->ofs << "x=\"" << canvasMarginPix + dotWidthPix * x + dotMarginPix * x << "\"" << std::endl;
-    this->ofs << "y=\"" << canvasMarginPix + dotWidthPix * y + dotMarginPix * y << "\"" << std::endl;
-    this->ofs << "id=\"" << pixelID++ << "\"" << std::endl;
-    this->ofs << "style=\"fill:#" + strColor + ";stroke:none;\" />" << std::endl;
+    this->os << "<rect" << std::endl;
+    this->os << "width=\"" << dotWidthPix << "\"" << std::endl;
+    this->os << "height=\"" << dotWidthPix << "\"" << std::endl;
+    this->os << "x=\"" << canvasMarginPix + dotWidthPix * x + dotMarginPix * x << "\"" << std::endl;
+    this->os << "y=\"" << canvasMarginPix + dotWidthPix * y + dotMarginPix * y << "\"" << std::endl;
+    this->os << "id=\"" << glyphID++ << "\"" << std::endl;
+    this->os << "style=\"fill:#" + strColor + ";stroke:none;\" />" << std::endl;
     this->backgroundHeightPix = canvasMarginPix + dotWidthPix * y + dotMarginPix * y + dotWidthPix + canvasMarginPix;
   }
 
@@ -88,13 +88,13 @@ namespace kallaballa {
     sstream << std::setfill('0') << std::setw(6) << std::hex << c;
     std::string strColor = sstream.str();
 
-    this->ofs << "<rect" << std::endl;
-    this->ofs << "width=\"" << dotWidthPix * 3 + dotMarginPix * 2 << "\"" << std::endl;
-    this->ofs << "height=\"" << dotWidthPix << "\"" << std::endl;
-    this->ofs << "x=\"" << canvasMarginPix + dotWidthPix * x + dotMarginPix * x << "\"" << std::endl;
-    this->ofs << "y=\"" << canvasMarginPix + dotWidthPix * y + dotMarginPix * y << "\"" << std::endl;
-    this->ofs << "id=\"" << pixelID++ << "\"" << std::endl;
-    this->ofs << "style=\"fill:#" + strColor + ";stroke:none;\" />" << std::endl;
+    this->os << "<rect" << std::endl;
+    this->os << "width=\"" << dotWidthPix * 3 + dotMarginPix * 2 << "\"" << std::endl;
+    this->os << "height=\"" << dotWidthPix << "\"" << std::endl;
+    this->os << "x=\"" << canvasMarginPix + dotWidthPix * x + dotMarginPix * x << "\"" << std::endl;
+    this->os << "y=\"" << canvasMarginPix + dotWidthPix * y + dotMarginPix * y << "\"" << std::endl;
+    this->os << "id=\"" << glyphID++ << "\"" << std::endl;
+    this->os << "style=\"fill:#" + strColor + ";stroke:none;\" />" << std::endl;
     this->backgroundHeightPix = canvasMarginPix + dotWidthPix * y + dotMarginPix * y + dotWidthPix + canvasMarginPix;
   }
 }
