@@ -17,17 +17,33 @@ To build it simply run 'make' in the base directory.
 
 The program uses a predefined color palette stored as line separated hex rgb values in the file "colors.txt". 
 
+## Usage
+
+    Usage: colorMorsePainting [options] [text]
+
+    Options:
+      -h [ --help ]                         Produce help message
+      -v [ --verbose ]                      Enable verbose output
+      -d [ --dots-per-row ] arg (=18)       Width of the whole painting measured as
+                                            (morse) dots per row
+      -w [ --dot-width ] arg (=5)           Width of a dot in millimeters
+      -m [ --dot-margin ] arg (=1)          Width of a dot margin in millimeters
+      -c [ --canvas-margin ] arg (=5)       Width of the margin of the painting
+      -f [ --output-file ] arg (=-)         The path of the output file. Default is
+                                            stdout
+      -p [ --palette-file ] arg (=colors.txt)
+                                            A file containing the color palette to 
+                                            be used for the painting.
+      -r [ --random-colors ]                Don't use a predefined palette. Instead
+                                            use random colors
+      -s [ --spacing ]                      Leave a blank dot between word 
+                                            boundaries
+
 ## Example
 
-There are four parameters you need to supply:
-* Width of the whole painting measured as (morse) dots per row
-* Width of a dot in millimeters
-* Width of a dot margin in millimeters
-* Width of the margin of the painting
+The program takes the input text as argument and writes the generated svg by default to stdout
 
-The program takes the input text from stdin and writes the generated svg to stdout
-
-    echo "Man kann mit einem Computer Kunst und Schönheit schaffen" | ./colorMorsePainting 18 5 1 5 > painting.svg 
+    ./colorMorsePainting "Man kann mit einem Computer Kunst und Schönheit schaffen" > painting.svg 
 
 ![Morse Painting: Kunst und Schönheit](https://github.com/kallaballa/ColorMorsePainting/raw/master/example/painting.png "Morse Painting: Kunst und Schönheit")
 
