@@ -4,7 +4,7 @@ ColorMorsePainting
 Generate colorful morse code messages suitable to be printed on e.g. t-shirts.
 I've written it for linux, but it should be easily portable to other platforms. 
 I'm using the CIEDE2000 library taken from https://github.com/gfiumara/CIEDE2000 which is incorporated in this repository.
-The only dependency is the Boost Program Options library.
+The only external dependency is the boost program options library.
 
 ## Build
 
