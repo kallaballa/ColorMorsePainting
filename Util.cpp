@@ -18,8 +18,13 @@
  */
 
 #include "Util.hpp"
+#include <algorithm>
 
 namespace kallaballa {
+
+void to_upper_case(std::string& str) {
+  std::transform(str.begin(), str.end(),str.begin(), ::toupper);
+}
 
 std::wstring utf8_to_utf32(const std::string& s) {
     typedef unsigned char byte;

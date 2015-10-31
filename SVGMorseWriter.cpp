@@ -24,14 +24,19 @@
 
 namespace kallaballa {
 
-  SVGMorseWriter::SVGMorseWriter(std::ostream& os, size_t dotsPerRow, size_t dotWidthMM, size_t dotMarginMM, size_t canvasMarginMM) :
+  SVGMorseWriter::SVGMorseWriter(std::ostream& os, Alignment align, RGBColor background, size_t dotsPerRow, size_t dotWidthMM, size_t dotMarginMM, size_t canvasMarginMM) :
     os(os),
+    align_(align),
+    background_(background),
+    x_(0),
+    y_(0),
     dotsPerRow_(dotsPerRow),
     dotWidthPix_(dotWidthMM * PIXEL_TO_MM),
     dotMarginPix_(dotMarginMM * PIXEL_TO_MM),
     canvasMarginPix_(canvasMarginMM * PIXEL_TO_MM),
     backgroundWidthPix_(dotsPerRow * dotWidthPix_ + dotsPerRow * dotMarginPix_ + canvasMarginPix_ * 2 - dotMarginPix_),
-    backgroundHeightPix_(0) {
+    backgroundHeightPix_(0),
+    lineBuffer_() {
     writeHeader();
   }
 
@@ -50,18 +55,25 @@ namespace kallaballa {
     this->os << "xmlns=\"http://www.w3.org/2000/svg\"" << std::endl;
     this->os << "version=\"1.1\"" << std::endl;
     this->os << "id=\"svg2\">" << std::endl;
-    this->os << "<defs><g id=\"foreground\">" << std::endl;
+    this->os << "<defs><g id=\"foreground\"><g>" << std::endl;
   }
 
   void SVGMorseWriter::writeFooter() {
-    this->os << "</g><g id=\"background\">" << std::endl;
+    if(!lineBuffer_.str().empty())
+      this->newLine();
+
+    std::stringstream sstream;
+    sstream << std::setfill('0') << std::setw(6) << std::hex << background_;
+    std::string strBackground = sstream.str();
+
+    this->os << "</g></g><g id=\"background\">" << std::endl;
     this->os << "<rect" << std::endl;
     this->os << "width=\"" << backgroundWidthPix_ << "\"" << std::endl;
     this->os << "height=\"" << backgroundHeightPix_ << "\"" << std::endl;
     this->os << "x=\"0\"" << std::endl;
     this->os << "y=\"0\"" << std::endl;
     this->os << "id=\"-1\"" << std::endl;
-    this->os << "style=\"stroke-width: 0px; fill: #000000;\"/>" << std::endl;
+    this->os << "style=\"stroke-width: 0px; fill: #" + strBackground + ";\"/>" << std::endl;
     this->os << "</g></defs>" << std::endl;
     //do the drawing in the right order
     this->os << "<use xlink:href=\"#background\" />" << std::endl;
@@ -69,33 +81,89 @@ namespace kallaballa {
     this->os << "</svg>" << std::endl;
   }
 
-  void SVGMorseWriter::writeDot(size_t x, size_t y, RGBColor c) {
-    std::stringstream sstream;
-    sstream << std::setfill('0') << std::setw(6) << std::hex << c;
-    std::string strColor = sstream.str();
+  void SVGMorseWriter::newLine() {
+    size_t remainder = this->dotsPerRow() - x_;
+    double transX = 0;
 
-    this->os << "<rect" << std::endl;
-    this->os << "width=\"" << dotWidthPix_ << "\"" << std::endl;
-    this->os << "height=\"" << dotWidthPix_ << "\"" << std::endl;
-    this->os << "x=\"" << canvasMarginPix_ + dotWidthPix_ * x + dotMarginPix_ * x << "\"" << std::endl;
-    this->os << "y=\"" << canvasMarginPix_ + dotWidthPix_ * y + dotMarginPix_ * y << "\"" << std::endl;
-    this->os << "id=\"" << glyphID++ << "\"" << std::endl;
-    this->os << "style=\"fill:#" + strColor + ";stroke:none;\" />" << std::endl;
-    this->backgroundHeightPix_ = canvasMarginPix_ + dotWidthPix_ * y + dotMarginPix_ * y + dotWidthPix_ + canvasMarginPix_;
+    if(remainder > 0) {
+      if(align_ == CENTER) {
+        transX = ((double)(dotWidthPix_ * remainder + dotMarginPix_ * remainder))/2.0;
+      } else if(align_ == RIGHT) {
+        transX = dotWidthPix_ * remainder + dotMarginPix_ * remainder;
+      } else {
+        //nothing to do for LEFT
+      }
+    }
+
+    this->os << "<g" << " transform=\"translate(" << transX << ",0)\"" << ">" << std::endl;
+    this->os << lineBuffer_.str() << std::endl;
+    this->os << "</g>" << std::endl;
+    this->lineBuffer_.str("");
+    ++this->y_;
+    this->x_ = 0;
   }
 
-  void SVGMorseWriter::writeDash(size_t x, size_t y, RGBColor c) {
+  void SVGMorseWriter::writeDot(RGBColor c) {
+    if(x_ + 1 > this->dotsPerRow()) {
+      this->newLine();
+    }
+
     std::stringstream sstream;
     sstream << std::setfill('0') << std::setw(6) << std::hex << c;
     std::string strColor = sstream.str();
 
-    this->os << "<rect" << std::endl;
-    this->os << "width=\"" << dotWidthPix_ * 3 + dotMarginPix_ * 2 << "\"" << std::endl;
-    this->os << "height=\"" << dotWidthPix_ << "\"" << std::endl;
-    this->os << "x=\"" << canvasMarginPix_ + dotWidthPix_ * x + dotMarginPix_ * x << "\"" << std::endl;
-    this->os << "y=\"" << canvasMarginPix_ + dotWidthPix_ * y + dotMarginPix_ * y << "\"" << std::endl;
-    this->os << "id=\"" << glyphID++ << "\"" << std::endl;
-    this->os << "style=\"fill:#" + strColor + ";stroke:none;\" />" << std::endl;
-    this->backgroundHeightPix_ = canvasMarginPix_ + dotWidthPix_ * y + dotMarginPix_ * y + dotWidthPix_ + canvasMarginPix_;
+    this->lineBuffer_ << "<rect" << "\n";
+    this->lineBuffer_ << "width=\"" << dotWidthPix_ << "\"" << "\n";
+    this->lineBuffer_ << "height=\"" << dotWidthPix_ << "\"" << "\n";
+    this->lineBuffer_ << "x=\"" << canvasMarginPix_ + dotWidthPix_ * x_ + dotMarginPix_ * x_ << "\"" << "\n";
+    this->lineBuffer_ << "y=\"" << canvasMarginPix_ + dotWidthPix_ * y_ + dotMarginPix_ * y_ << "\"" << "\n";
+    this->lineBuffer_ << "id=\"" << glyphID++ << "\"" << "\n";
+    this->lineBuffer_ << "style=\"fill:#" << strColor << ";stroke:none;\" />" << "\n";
+
+    this->backgroundHeightPix_ = canvasMarginPix_ + dotWidthPix_ * y_ + dotMarginPix_ * y_ + dotWidthPix_ + canvasMarginPix_;
+    ++x_;
+  }
+
+  void SVGMorseWriter::writeDash(RGBColor c) {
+    if(x_ + 3 > this->dotsPerRow()) {
+      this->newLine();
+    }
+
+    std::stringstream sstream;
+    sstream << std::setfill('0') << std::setw(6) << std::hex << c;
+    std::string strColor = sstream.str();
+
+    this->lineBuffer_ << "<rect" << '\n';
+    this->lineBuffer_ << "width=\"" << dotWidthPix_ * 3 + dotMarginPix_ * 2 << "\"" << '\n';
+    this->lineBuffer_ << "height=\"" << dotWidthPix_ << "\"" << '\n';
+    this->lineBuffer_ << "x=\"" << canvasMarginPix_ + dotWidthPix_ * x_ + dotMarginPix_ * x_ << "\"" << '\n';
+    this->lineBuffer_ << "y=\"" << canvasMarginPix_ + dotWidthPix_ * y_ + dotMarginPix_ * y_ << "\"" << '\n';
+    this->lineBuffer_ << "id=\"" << glyphID++ << "\"" << '\n';
+    this->lineBuffer_ << "style=\"fill:#" << strColor << ";stroke:none;\" />" << '\n';
+
+    this->backgroundHeightPix_ = canvasMarginPix_ + dotWidthPix_ * y_ + dotMarginPix_ * y_ + dotWidthPix_ + canvasMarginPix_;
+    x_+=3;
+  }
+
+  void SVGMorseWriter::writeSpace() {
+    if(x_ + 1 > this->dotsPerRow()) {
+      this->newLine();
+    }
+
+    std::stringstream sstream;
+    sstream << std::setfill('0') << std::setw(6) << std::hex << background_;
+    std::string strColor = sstream.str();
+
+    this->lineBuffer_ << "<rect" << '\n';
+    this->lineBuffer_ << "width=\"" << dotWidthPix_ << "\"" << '\n';
+    this->lineBuffer_ << "height=\"" << dotWidthPix_ << "\"" << '\n';
+    this->lineBuffer_ << "x=\"" << canvasMarginPix_ + dotWidthPix_ * x_ + dotMarginPix_ * x_ << "\"" << '\n';
+    this->lineBuffer_ << "y=\"" << canvasMarginPix_ + dotWidthPix_ * y_ + dotMarginPix_ * y_ << "\"" << '\n';
+    this->lineBuffer_ << "id=\"" << glyphID++ << "\"" << '\n';
+    this->lineBuffer_ << "style=\"fill:#" << strColor << ";stroke:none;\" />" << '\n';
+
+    this->backgroundHeightPix_ = canvasMarginPix_ + dotWidthPix_ * y_ + dotMarginPix_ * y_ + dotWidthPix_ + canvasMarginPix_;
+    ++x_;
   }
 }
+

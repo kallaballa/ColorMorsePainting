@@ -36,6 +36,7 @@ namespace kallaballa
   double ciede2000_distance(RGBColor a, RGBColor b);
 
   class ColorSelector {
+    RGBColor bg_;
     static std::random_device randDev_;
     RGBColor lastColor_ = 0;
     std::vector<RGBColor> palette_;
@@ -43,8 +44,8 @@ namespace kallaballa
     std::mt19937 rng_;
     std::uniform_int_distribution<RGBColor> uni_;
   public:
-    ColorSelector(std::vector<RGBColor> palette);
-    ColorSelector();
+    ColorSelector(RGBColor bg, std::vector<RGBColor> palette);
+    ColorSelector(RGBColor bg);
     RGBColor next();
   };
 }

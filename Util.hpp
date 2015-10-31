@@ -25,6 +25,7 @@
 
 namespace kallaballa {
 
+void to_upper_case(std::string& str);
 std::wstring utf8_to_utf32(const std::string& s);
 
 }

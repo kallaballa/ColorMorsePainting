@@ -23,13 +23,25 @@
 #include "Color.hpp"
 #include <stdint.h>
 #include <iostream>
+#include <sstream>
 
 namespace kallaballa {
 
   class SVGMorseWriter {
+public:
+    enum Alignment {
+      LEFT,
+      CENTER,
+      RIGHT
+    };
+private:
     const double PIXEL_TO_MM = 3.5434;
 
     std::ostream& os;
+    Alignment align_;
+    RGBColor background_;
+    size_t x_;
+    size_t y_;
     size_t dotsPerRow_;
     size_t dotWidthPix_;
     size_t dotMarginPix_;
@@ -37,16 +49,19 @@ namespace kallaballa {
     size_t backgroundWidthPix_;
     size_t backgroundHeightPix_;
     size_t glyphID = 0;
+    std::ostringstream lineBuffer_;
 
     void writeHeader();
     void writeFooter();
-  public:
-    SVGMorseWriter(std::ostream& ostream, size_t dotsPerRow, size_t dotWidthMM, size_t dotMarginMM, size_t canvasMarginMM) ;
-    SVGMorseWriter(const char* filename, size_t dotsPerRow, size_t dotWidthMM, size_t dotMarginMM, size_t canvasMarginMM) ;
+    void newLine();
+public:
+
+    SVGMorseWriter(std::ostream& ostream, Alignment align, RGBColor background, size_t dotsPerRow, size_t dotWidthMM, size_t dotMarginMM, size_t canvasMarginMM) ;
     virtual ~SVGMorseWriter();
 
-    void writeDot(size_t x, size_t y, RGBColor c);
-    void writeDash(size_t x, size_t y, RGBColor c);
+    void writeDot(RGBColor c);
+    void writeDash(RGBColor c);
+    void writeSpace();
 
     size_t dotsPerRow() const {
       return dotsPerRow_;
