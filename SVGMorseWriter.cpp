@@ -26,11 +26,12 @@ namespace kallaballa {
 
   SVGMorseWriter::SVGMorseWriter(std::ostream& os, size_t dotsPerRow, size_t dotWidthMM, size_t dotMarginMM, size_t canvasMarginMM) :
     os(os),
-    dotWidthPix(dotWidthMM * PIXEL_TO_MM),
-    dotMarginPix(dotMarginMM * PIXEL_TO_MM),
-    canvasMarginPix(canvasMarginMM * PIXEL_TO_MM),
-    backgroundWidthPix(dotsPerRow * dotWidthPix + dotsPerRow * dotMarginPix + canvasMarginPix * 2 - dotMarginPix),
-    backgroundHeightPix(0) {
+    dotsPerRow_(dotsPerRow),
+    dotWidthPix_(dotWidthMM * PIXEL_TO_MM),
+    dotMarginPix_(dotMarginMM * PIXEL_TO_MM),
+    canvasMarginPix_(canvasMarginMM * PIXEL_TO_MM),
+    backgroundWidthPix_(dotsPerRow * dotWidthPix_ + dotsPerRow * dotMarginPix_ + canvasMarginPix_ * 2 - dotMarginPix_),
+    backgroundHeightPix_(0) {
     writeHeader();
   }
 
@@ -55,8 +56,8 @@ namespace kallaballa {
   void SVGMorseWriter::writeFooter() {
     this->os << "</g><g id=\"background\">" << std::endl;
     this->os << "<rect" << std::endl;
-    this->os << "width=\"" << backgroundWidthPix << "\"" << std::endl;
-    this->os << "height=\"" << backgroundHeightPix << "\"" << std::endl;
+    this->os << "width=\"" << backgroundWidthPix_ << "\"" << std::endl;
+    this->os << "height=\"" << backgroundHeightPix_ << "\"" << std::endl;
     this->os << "x=\"0\"" << std::endl;
     this->os << "y=\"0\"" << std::endl;
     this->os << "id=\"-1\"" << std::endl;
@@ -74,13 +75,13 @@ namespace kallaballa {
     std::string strColor = sstream.str();
 
     this->os << "<rect" << std::endl;
-    this->os << "width=\"" << dotWidthPix << "\"" << std::endl;
-    this->os << "height=\"" << dotWidthPix << "\"" << std::endl;
-    this->os << "x=\"" << canvasMarginPix + dotWidthPix * x + dotMarginPix * x << "\"" << std::endl;
-    this->os << "y=\"" << canvasMarginPix + dotWidthPix * y + dotMarginPix * y << "\"" << std::endl;
+    this->os << "width=\"" << dotWidthPix_ << "\"" << std::endl;
+    this->os << "height=\"" << dotWidthPix_ << "\"" << std::endl;
+    this->os << "x=\"" << canvasMarginPix_ + dotWidthPix_ * x + dotMarginPix_ * x << "\"" << std::endl;
+    this->os << "y=\"" << canvasMarginPix_ + dotWidthPix_ * y + dotMarginPix_ * y << "\"" << std::endl;
     this->os << "id=\"" << glyphID++ << "\"" << std::endl;
     this->os << "style=\"fill:#" + strColor + ";stroke:none;\" />" << std::endl;
-    this->backgroundHeightPix = canvasMarginPix + dotWidthPix * y + dotMarginPix * y + dotWidthPix + canvasMarginPix;
+    this->backgroundHeightPix_ = canvasMarginPix_ + dotWidthPix_ * y + dotMarginPix_ * y + dotWidthPix_ + canvasMarginPix_;
   }
 
   void SVGMorseWriter::writeDash(size_t x, size_t y, RGBColor c) {
@@ -89,12 +90,12 @@ namespace kallaballa {
     std::string strColor = sstream.str();
 
     this->os << "<rect" << std::endl;
-    this->os << "width=\"" << dotWidthPix * 3 + dotMarginPix * 2 << "\"" << std::endl;
-    this->os << "height=\"" << dotWidthPix << "\"" << std::endl;
-    this->os << "x=\"" << canvasMarginPix + dotWidthPix * x + dotMarginPix * x << "\"" << std::endl;
-    this->os << "y=\"" << canvasMarginPix + dotWidthPix * y + dotMarginPix * y << "\"" << std::endl;
+    this->os << "width=\"" << dotWidthPix_ * 3 + dotMarginPix_ * 2 << "\"" << std::endl;
+    this->os << "height=\"" << dotWidthPix_ << "\"" << std::endl;
+    this->os << "x=\"" << canvasMarginPix_ + dotWidthPix_ * x + dotMarginPix_ * x << "\"" << std::endl;
+    this->os << "y=\"" << canvasMarginPix_ + dotWidthPix_ * y + dotMarginPix_ * y << "\"" << std::endl;
     this->os << "id=\"" << glyphID++ << "\"" << std::endl;
     this->os << "style=\"fill:#" + strColor + ";stroke:none;\" />" << std::endl;
-    this->backgroundHeightPix = canvasMarginPix + dotWidthPix * y + dotMarginPix * y + dotWidthPix + canvasMarginPix;
+    this->backgroundHeightPix_ = canvasMarginPix_ + dotWidthPix_ * y + dotMarginPix_ * y + dotWidthPix_ + canvasMarginPix_;
   }
 }

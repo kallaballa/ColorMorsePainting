@@ -30,11 +30,12 @@ namespace kallaballa {
     const double PIXEL_TO_MM = 3.5434;
 
     std::ostream& os;
-    size_t dotWidthPix;
-    size_t dotMarginPix;
-    size_t canvasMarginPix;
-    size_t backgroundWidthPix;
-    size_t backgroundHeightPix;
+    size_t dotsPerRow_;
+    size_t dotWidthPix_;
+    size_t dotMarginPix_;
+    size_t canvasMarginPix_;
+    size_t backgroundWidthPix_;
+    size_t backgroundHeightPix_;
     size_t glyphID = 0;
 
     void writeHeader();
@@ -46,6 +47,10 @@ namespace kallaballa {
 
     void writeDot(size_t x, size_t y, RGBColor c);
     void writeDash(size_t x, size_t y, RGBColor c);
+
+    size_t dotsPerRow() const {
+      return dotsPerRow_;
+    }
   };
 }
 

@@ -6,7 +6,7 @@ TARGET  := colorMorsePainting.html
 else
 TARGET  := colorMorsePainting 
 endif
-SRCS    := ColorMorsePainting.cpp Color.cpp SVGMorseWriter.cpp CIEDE2000.cpp
+SRCS    := ColorMorsePainting.cpp Util.cpp Morse.cpp Color.cpp SVGMorseWriter.cpp CIEDE2000.cpp
 OBJS    := ${SRCS:.cpp=.o} 
 DEPS    := ${SRCS:.cpp=.dep} 
 
@@ -18,7 +18,7 @@ else
 	CXXFLAGS = -std=c++0x -pedantic -Wall -O3
 endif
 
-LIBS    =
+LIBS    = -lboost_program_options
 
 .PHONY: all clean distclean 
 

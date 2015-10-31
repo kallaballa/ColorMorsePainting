@@ -19,6 +19,7 @@
 
 #include "Color.hpp"
 #include <fstream>
+
 #ifdef COLORDIST_DEBUG
 #include <iostream>
 #endif
@@ -123,18 +124,33 @@ namespace kallaballa
   ColorSelector::ColorSelector(std::vector<RGBColor> palette) : palette_(palette), rng_(randDev_()), uni_(0,palette.size() - 1) {
   }
 
+  ColorSelector::ColorSelector() : palette_(0), rng_(randDev_()), uni_(std::numeric_limits<RGBColor>().min(),std::numeric_limits<RGBColor>().max() - 1) {
+  }
+
   RGBColor ColorSelector::next() {
       RGBColor selected;
 
+      if(palette_.empty()) {
 #ifdef COLORDIST_DEBUG
-      double deltaE;
-      while((deltaE = ciede2000_distance(lastColor_, selected = palette_[uni_(rng_)] )) < 50.0) {
+        double deltaE;
+        while((deltaE = ciede2000_distance(lastColor_, selected = (uni_(rng_) & 0x00ffffff) )) < 50.0 || ciede2000_distance(0, selected) < 50.0) {
+          std::cerr << deltaE << std::endl;
+        }
         std::cerr << deltaE << std::endl;
-      }
-      std::cerr << deltaE << std::endl;
 #else
-      while(ciede2000_distance(lastColor_, selected = palette_[uni_(rng_)] ) < 50.0) {}
+        while(ciede2000_distance(lastColor_, selected = (uni_(rng_) & 0x00ffffff) ) < 50.0  || ciede2000_distance(0, selected) < 50.0) { }
 #endif
+  } else {
+#ifdef COLORDIST_DEBUG
+        double deltaE;
+        while((deltaE = ciede2000_distance(lastColor_, selected = palette_[uni_(rng_)] )) < 50.0 || ciede2000_distance(0, selected) < 50.0) {
+          std::cerr << deltaE << std::endl;
+        }
+        std::cerr << deltaE << std::endl;
+#else
+        while(ciede2000_distance(lastColor_, selected = palette_[uni_(rng_)] ) < 50.0 || ciede2000_distance(0, selected) < 50.0) {}
+#endif
+      }
 
       return lastColor_ = selected;;
   }

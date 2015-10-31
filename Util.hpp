@@ -17,37 +17,16 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  */
 
-#ifndef COLOR_HPP_
-#define COLOR_HPP_
+#ifndef UTIL_HPP_
+#define UTIL_HPP_
 
-#include "CIEDE2000.hpp"
-#include <cstdint>
-#include <cmath>
-#include <random>
+#include <string>
+#include <cstddef>
 
-namespace kallaballa
-{
-  typedef uint32_t RGBColor;
+namespace kallaballa {
 
-  std::vector<RGBColor> readColorsFromFile(const std::string& filename);
-  std::vector<size_t> unpack(RGBColor c);
-  std::vector<double> toXYC(RGBColor c);
-  std::vector<double> toLAB(RGBColor c);
-  double ciede2000_distance(RGBColor a, RGBColor b);
+std::wstring utf8_to_utf32(const std::string& s);
 
-  class ColorSelector {
-    static std::random_device randDev_;
-    RGBColor lastColor_ = 0;
-    std::vector<RGBColor> palette_;
-
-    std::mt19937 rng_;
-    std::uniform_int_distribution<RGBColor> uni_;
-  public:
-    ColorSelector(std::vector<RGBColor> palette);
-    ColorSelector();
-    RGBColor next();
-  };
 }
 
-/* namespace kallaballa */
-#endif /* COLOR_HPP_ */
+#endif /* UTIL_HPP_ */
