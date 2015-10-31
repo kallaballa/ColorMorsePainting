@@ -26,7 +26,9 @@ To build it simply run 'make' in the base directory.
 
 ## Color Palette
 
-The program uses a predefined color palette stored as line separated hex rgb values in the file "colors.txt". 
+The program by default uses a predefined color palette stored as line separated hex rgb values in the file "colors.txt".
+You can specify a different palette file with the "-p" flag. Addionally the program can be configured to use random colors
+from the whole RGB 24bit spectrum by using the "-r" flag.
 
 ## Usage
 
