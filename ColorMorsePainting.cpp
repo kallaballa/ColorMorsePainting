@@ -68,8 +68,6 @@ namespace kallaballa {
 }
 
 int main(int argc, char** argv) {
-  using namespace kallaballa;
-
   size_t dotsPerRow = 18;
   size_t dotWidthMM = 5;
   size_t dotMarginMM = 1;
@@ -123,6 +121,7 @@ int main(int argc, char** argv) {
       return 0;
   }
 
+  using namespace kallaballa;
 
   verbose = vm.count("verbose");
   randomColors = vm.count("random-colors");
