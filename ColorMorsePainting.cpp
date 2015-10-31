@@ -74,6 +74,7 @@ int main(int argc, char** argv) {
   size_t dotWidthMM = 5;
   size_t dotMarginMM = 1;
   size_t canvasMarginMM = 5;
+  size_t roundedRadius = 0;
   std::string paletteFile = "colors.txt";
   std::string outputFile = "-";
   std::string text;
@@ -91,6 +92,7 @@ int main(int argc, char** argv) {
     ("dot-width,w", po::value<size_t>(&dotWidthMM)->default_value(dotWidthMM), "Width of a dot in millimeters")
     ("dot-margin,m", po::value<size_t>(&dotMarginMM)->default_value(dotMarginMM), "Width of a dot margin in millimeters")
     ("canvas-margin,c", po::value<size_t>(&canvasMarginMM)->default_value(canvasMarginMM), "Width of the margin of the painting")
+    ("rounded-corner,x", po::value<size_t>(&roundedRadius)->default_value(roundedRadius), "The rounded corner radius of the dot rectangles")
     ("alignment,a", po::value<std::string>(&strAlign)->default_value(strAlign), "The alignment of morse dot lines which are not using the full width. Either LEFT, CENTER or RIGHT")
     ("output-file,f", po::value<std::string>(&outputFile)->default_value(outputFile), "The path of the output file. Default is stdout")
     ("palette-file,p", po::value<std::string>(&paletteFile)->default_value(paletteFile), "A file containing the color palette to be used for the painting.")
@@ -159,7 +161,7 @@ int main(int argc, char** argv) {
     exit(1);
   }
 
-  SVGMorseWriter writer(*out, align, bgColor, dotsPerRow, dotWidthMM, dotMarginMM, canvasMarginMM);
+  SVGMorseWriter writer(*out, align, bgColor, roundedRadius, dotsPerRow, dotWidthMM, dotMarginMM, canvasMarginMM);
   MorseTranslator morseTrans;
 
   paint(wtext, *selector, writer, morseTrans, verbose, spacing);

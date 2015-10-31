@@ -59,10 +59,15 @@ from the whole RGB 24bit spectrum by using the "-r" flag.
 
 ## Example
 
-The program takes the input text as argument and writes the generated svg by default to stdout
+The program takes the input text as argument and writes the generated svg by default to stdout. The following example uses default options only.
 
-    ./colorMorsePainting "Man kann mit einem Computer Kunst und Schönheit schaffen" > painting.svg 
+    ./colorMorsePainting "Man kann mit einem Computer Kunst und Schönheit schaffen" > default.svg 
 
-![Morse Painting: Kunst und Schönheit](https://github.com/kallaballa/ColorMorsePainting/raw/master/example/painting.png "Morse Painting: Kunst und Schönheit")
+![Morse Painting: Kunst und Schönheit (default options)](https://github.com/kallaballa/ColorMorsePainting/raw/master/example/default.png "Morse Painting: Kunst und Schönheit (default options)")
 
+The second example defines several custom options (random colors, rounded corner radius = 5px, alignment = center, verbose output):
+
+    ./colorMorsePainting -r -x 5 -a center -v "Man kann mit einem Computer Kunst und Schönheit schaffen" > custom.svg
+
+![Morse Painting: Kunst und Schönheit (custom options)](https://github.com/kallaballa/ColorMorsePainting/raw/master/example/custom.png "Morse Painting: Kunst und Schönheit (custom options)")
 
