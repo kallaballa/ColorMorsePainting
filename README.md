@@ -10,9 +10,11 @@ The only external dependency is the boost program options library.
 
 First please install the boost program options library.
 For Debian/Ubuntu:
+
     sudo apt-get install libboost-program-options-dev
 
 For OpenSuse:
+
     sudo zypper in libboost_program_options1_54_0
 
 To build it simply run 'make' in the base directory.
