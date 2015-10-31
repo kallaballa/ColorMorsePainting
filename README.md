@@ -9,6 +9,7 @@ The only external dependency is the boost program options library.
 ## Build
 
 First please install the boost program options library.
+
 For Debian/Ubuntu:
 
     sudo apt-get install libboost-program-options-dev
