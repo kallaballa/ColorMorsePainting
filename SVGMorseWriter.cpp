@@ -24,12 +24,13 @@
 
 namespace kallaballa {
 
-  SVGMorseWriter::SVGMorseWriter(std::ostream& os, Alignment align, RGBColor background, size_t roundedRadiusX, size_t roundedRadiusY, size_t dotsPerRow, size_t dotWidthMM, size_t dotMarginMM, size_t canvasMarginMM) :
+  SVGMorseWriter::SVGMorseWriter(std::ostream& os, Alignment align, RGBColor background, size_t roundedRadiusX, size_t roundedRadiusY, size_t dashWidthFactor, size_t dotsPerRow, size_t dotWidthMM, size_t dotMarginMM, size_t canvasMarginMM) :
     os(os),
     align_(align),
     background_(background),
     roundedRadiusX_(roundedRadiusX),
     roundedRadiusY_(roundedRadiusY),
+    dashWidthFactor_(dashWidthFactor),
     x_(0),
     y_(0),
     dotsPerRow_(dotsPerRow),
@@ -129,7 +130,7 @@ namespace kallaballa {
   }
 
   void SVGMorseWriter::writeDash(RGBColor c) {
-    if(x_ + 3 > this->dotsPerRow()) {
+    if(x_ + dashWidthFactor_ > this->dotsPerRow()) {
       this->newLine();
     }
 
@@ -138,7 +139,7 @@ namespace kallaballa {
     std::string strColor = sstream.str();
 
     this->lineBuffer_ << "<rect" << '\n';
-    this->lineBuffer_ << "width=\"" << dotWidthPix_ * 3 + dotMarginPix_ * 2 << "\"" << '\n';
+    this->lineBuffer_ << "width=\"" << dotWidthPix_ * dashWidthFactor_ + dotMarginPix_ * (dashWidthFactor_ - 1) << "\"" << '\n';
     this->lineBuffer_ << "height=\"" << dotWidthPix_ << "\"" << '\n';
     this->lineBuffer_ << "rx=\"" << roundedRadiusX_ << "\"" << '\n';
     this->lineBuffer_ << "ry=\"" << roundedRadiusY_ << "\"" << '\n';
@@ -148,7 +149,7 @@ namespace kallaballa {
     this->lineBuffer_ << "style=\"fill:#" << strColor << ";stroke:none;\" />" << '\n';
 
     this->backgroundHeightPix_ = canvasMarginPix_ + dotWidthPix_ * y_ + dotMarginPix_ * y_ + dotWidthPix_ + canvasMarginPix_;
-    x_+=3;
+    x_+=dashWidthFactor_;
   }
 
   void SVGMorseWriter::writeSpace() {

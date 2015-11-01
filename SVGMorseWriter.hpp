@@ -42,6 +42,7 @@ private:
     RGBColor background_;
     size_t roundedRadiusX_;
     size_t roundedRadiusY_;
+    size_t dashWidthFactor_;
     size_t x_;
     size_t y_;
     size_t dotsPerRow_;
@@ -58,7 +59,7 @@ private:
     void newLine();
 public:
 
-    SVGMorseWriter(std::ostream& ostream, Alignment align, RGBColor background, size_t roundedRadiusX, size_t roundedRadiusY, size_t dotsPerRow, size_t dotWidthMM, size_t dotMarginMM, size_t canvasMarginMM) ;
+    SVGMorseWriter(std::ostream& ostream, Alignment align, RGBColor background, size_t roundedRadiusX, size_t roundedRadiusY, size_t dashWidthFactor, size_t dotsPerRow, size_t dotWidthMM, size_t dotMarginMM, size_t canvasMarginMM) ;
     virtual ~SVGMorseWriter();
 
     void writeDot(RGBColor c);

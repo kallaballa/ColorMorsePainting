@@ -72,6 +72,7 @@ int main(int argc, char** argv) {
   size_t canvasMarginMM = 5;
   size_t roundedRadiusX = 0;
   size_t roundedRadiusY = 0;
+  size_t dashWidthFactor = 3;
   std::string paletteFile = "colors.txt";
   std::string outputFile = "-";
   std::string text;
@@ -92,6 +93,7 @@ int main(int argc, char** argv) {
     ("canvas-margin,c", po::value<size_t>(&canvasMarginMM)->default_value(canvasMarginMM), "Width of the margin of the painting")
     ("rounded-radius-x,x", po::value<size_t>(&roundedRadiusX)->default_value(roundedRadiusX), "The rounded corner radius (x) of the dot rectangles")
     ("rounded-radius-y,y", po::value<size_t>(&roundedRadiusY)->default_value(roundedRadiusY), "The rounded corner radius (y) of the dot rectangles")
+    ("dash-width-factor,k", po::value<size_t>(&dashWidthFactor)->default_value(dashWidthFactor), "The width of a dash described as a multiple of dots (min = 2, max = dots-per-row / 2)")
     ("alignment,a", po::value<std::string>(&strAlign)->default_value(strAlign), "The alignment of morse dot lines which are not using the full width. Either LEFT, CENTER or RIGHT")
     ("output-file,f", po::value<std::string>(&outputFile)->default_value(outputFile), "The path of the output file. Default is stdout")
     ("palette-file,p", po::value<std::string>(&paletteFile)->default_value(paletteFile), "A file containing the color palette to be used for the painting.")
@@ -151,11 +153,9 @@ int main(int argc, char** argv) {
     deleteOutStream = true;
   }
 
-  ColorSelector* selector;
-  if(randomColors) {
-    selector = new ColorSelector(bgColor);
-  } else  {
-    selector = new ColorSelector(bgColor, readColorsFromFile(paletteFile));
+  if(dashWidthFactor < 2 || dashWidthFactor > (dotsPerRow / 2)) {
+    std::cerr << "Error: Illegal dash-width-factor = " << dashWidthFactor << std::endl;
+    exit(1);
   }
 
   SVGMorseWriter::Alignment align = SVGMorseWriter::LEFT;
@@ -172,7 +172,14 @@ int main(int argc, char** argv) {
     exit(1);
   }
 
-  SVGMorseWriter writer(*out, align, bgColor, roundedRadiusX, roundedRadiusY, dotsPerRow, dotWidthMM, dotMarginMM, canvasMarginMM);
+  ColorSelector* selector;
+  if(randomColors) {
+    selector = new ColorSelector(bgColor);
+  } else  {
+    selector = new ColorSelector(bgColor, readColorsFromFile(paletteFile));
+  }
+
+  SVGMorseWriter writer(*out, align, bgColor, roundedRadiusX, roundedRadiusY, dashWidthFactor, dotsPerRow, dotWidthMM, dotMarginMM, canvasMarginMM);
   MorseTranslator morseTrans;
 
   paint(*in, *selector, writer, morseTrans, verbose, spacing);
