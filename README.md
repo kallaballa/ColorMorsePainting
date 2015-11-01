@@ -28,7 +28,7 @@ To build it, simply run 'make' in the base directory.
 
 The program by default uses a predefined color palette stored as line separated hex rgb values in the file "colors.txt".
 You can specify a different palette file with the "-p" flag. 
-Using the [CIEDE20000](https://en.wikipedia.org/wiki/Color_difference#CIEDE2000) color difference metric the program make
+Using the [CIEDE20000](https://en.wikipedia.org/wiki/Color_difference#CIEDE2000) color difference metric the program makes
 sure that adjancend morse letters have a sufficent color contrast (making them easily distinguishable) to each other as well
 as to the background color.
 Please note that the program can be configured to use random colors from the whole 24bit RGB spectrum by using the "-r" flag.
@@ -77,9 +77,9 @@ The program takes the input text as argument and writes the generated svg by def
 
 ![Morse Painting: Kunst und Schönheit (default options)](https://github.com/kallaballa/ColorMorsePainting/raw/master/example/default.png "Morse Painting: Kunst und Schönheit (default options)")
 
-The second example defines several custom options (random colors instead of a color palette, rounded corner radius x = 5px / y = 5px, alignment = center, verbose output) and reads the text from stdin (-i):
+The second example defines several custom options (navy blue background, random colors instead of a color palette, rounded corner radius x = 5px / y = 5px, alignment = center, verbose output) and reads the text from stdin (-i):
 
-    echo "Man kann mit einem Computer Kunst und Schönheit schaffen" | ./colorMorsePainting -b 222222 -r -y 5 -x 5 -a center -v -i > custom.svg
+    echo "Man kann mit einem Computer Kunst und Schönheit schaffen" | ./colorMorsePainting -b 000080 -r -y 5 -x 5 -a center -v -i > custom.svg
 
 ![Morse Painting: Kunst und Schönheit (custom options)](https://github.com/kallaballa/ColorMorsePainting/raw/master/example/custom.png "Morse Painting: Kunst und Schönheit (custom options)")
 

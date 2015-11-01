@@ -18,7 +18,7 @@ ry="5"
 x="17"
 y="17"
 id="0"
-style="fill:#53acd0;stroke:none;" />
+style="fill:#48d35a;stroke:none;" />
 <rect
 width="57"
 height="17"
@@ -27,7 +27,7 @@ ry="5"
 x="77"
 y="17"
 id="1"
-style="fill:#53acd0;stroke:none;" />
+style="fill:#48d35a;stroke:none;" />
 <rect
 width="17"
 height="17"
@@ -36,7 +36,7 @@ ry="5"
 x="137"
 y="17"
 id="2"
-style="fill:#f6e822;stroke:none;" />
+style="fill:#df4736;stroke:none;" />
 <rect
 width="57"
 height="17"
@@ -45,7 +45,7 @@ ry="5"
 x="157"
 y="17"
 id="3"
-style="fill:#f6e822;stroke:none;" />
+style="fill:#df4736;stroke:none;" />
 <rect
 width="57"
 height="17"
@@ -54,7 +54,7 @@ ry="5"
 x="217"
 y="17"
 id="4"
-style="fill:#fc01c4;stroke:none;" />
+style="fill:#85ab7d;stroke:none;" />
 <rect
 width="17"
 height="17"
@@ -63,7 +63,7 @@ ry="5"
 x="277"
 y="17"
 id="5"
-style="fill:#fc01c4;stroke:none;" />
+style="fill:#85ab7d;stroke:none;" />
 <rect
 width="57"
 height="17"
@@ -72,7 +72,7 @@ ry="5"
 x="297"
 y="17"
 id="6"
-style="fill:#e3a7f8;stroke:none;" />
+style="fill:#ddbcb3;stroke:none;" />
 <rect
 width="17"
 height="17"
@@ -81,7 +81,7 @@ ry="5"
 x="357"
 y="17"
 id="7"
-style="fill:#e3a7f8;stroke:none;" />
+style="fill:#ddbcb3;stroke:none;" />
 
 </g>
 <g transform="translate(0,0)">
@@ -93,7 +93,7 @@ ry="5"
 x="17"
 y="37"
 id="8"
-style="fill:#e3a7f8;stroke:none;" />
+style="fill:#ddbcb3;stroke:none;" />
 <rect
 width="17"
 height="17"
@@ -102,7 +102,7 @@ ry="5"
 x="77"
 y="37"
 id="9"
-style="fill:#68c744;stroke:none;" />
+style="fill:#474c2f;stroke:none;" />
 <rect
 width="57"
 height="17"
@@ -111,7 +111,7 @@ ry="5"
 x="97"
 y="37"
 id="10"
-style="fill:#68c744;stroke:none;" />
+style="fill:#474c2f;stroke:none;" />
 <rect
 width="57"
 height="17"
@@ -120,7 +120,7 @@ ry="5"
 x="157"
 y="37"
 id="11"
-style="fill:#f15714;stroke:none;" />
+style="fill:#d0b5e2;stroke:none;" />
 <rect
 width="17"
 height="17"
@@ -129,7 +129,7 @@ ry="5"
 x="217"
 y="37"
 id="12"
-style="fill:#f15714;stroke:none;" />
+style="fill:#d0b5e2;stroke:none;" />
 <rect
 width="57"
 height="17"
@@ -138,7 +138,7 @@ ry="5"
 x="237"
 y="37"
 id="13"
-style="fill:#5ff2c6;stroke:none;" />
+style="fill:#a5f65f;stroke:none;" />
 <rect
 width="17"
 height="17"
@@ -147,7 +147,7 @@ ry="5"
 x="297"
 y="37"
 id="14"
-style="fill:#5ff2c6;stroke:none;" />
+style="fill:#a5f65f;stroke:none;" />
 <rect
 width="57"
 height="17"
@@ -156,7 +156,7 @@ ry="5"
 x="317"
 y="37"
 id="15"
-style="fill:#88fe2f;stroke:none;" />
+style="fill:#57fd19;stroke:none;" />
 
 </g>
 <g transform="translate(20,0)">
@@ -168,7 +168,7 @@ ry="5"
 x="17"
 y="57"
 id="16"
-style="fill:#88fe2f;stroke:none;" />
+style="fill:#57fd19;stroke:none;" />
 <rect
 width="17"
 height="17"
@@ -177,7 +177,7 @@ ry="5"
 x="77"
 y="57"
 id="17"
-style="fill:#fb2f14;stroke:none;" />
+style="fill:#905021;stroke:none;" />
 <rect
 width="17"
 height="17"
@@ -186,7 +186,7 @@ ry="5"
 x="97"
 y="57"
 id="18"
-style="fill:#fb2f14;stroke:none;" />
+style="fill:#905021;stroke:none;" />
 <rect
 width="57"
 height="17"
@@ -195,7 +195,7 @@ ry="5"
 x="117"
 y="57"
 id="19"
-style="fill:#62ebe0;stroke:none;" />
+style="fill:#1ce674;stroke:none;" />
 <rect
 width="17"
 height="17"
@@ -204,7 +204,7 @@ ry="5"
 x="177"
 y="57"
 id="20"
-style="fill:#aaba3d;stroke:none;" />
+style="fill:#6ef280;stroke:none;" />
 <rect
 width="17"
 height="17"
@@ -213,7 +213,7 @@ ry="5"
 x="197"
 y="57"
 id="21"
-style="fill:#bf85cf;stroke:none;" />
+style="fill:#f982bd;stroke:none;" />
 <rect
 width="17"
 height="17"
@@ -222,7 +222,7 @@ ry="5"
 x="217"
 y="57"
 id="22"
-style="fill:#bf85cf;stroke:none;" />
+style="fill:#f982bd;stroke:none;" />
 <rect
 width="57"
 height="17"
@@ -231,7 +231,7 @@ ry="5"
 x="237"
 y="57"
 id="23"
-style="fill:#54ab1e;stroke:none;" />
+style="fill:#00da00;stroke:none;" />
 <rect
 width="17"
 height="17"
@@ -240,7 +240,7 @@ ry="5"
 x="297"
 y="57"
 id="24"
-style="fill:#54ab1e;stroke:none;" />
+style="fill:#00da00;stroke:none;" />
 <rect
 width="17"
 height="17"
@@ -249,7 +249,7 @@ ry="5"
 x="317"
 y="57"
 id="25"
-style="fill:#cb9cae;stroke:none;" />
+style="fill:#55aacf;stroke:none;" />
 
 </g>
 <g transform="translate(10,0)">
@@ -261,7 +261,7 @@ ry="5"
 x="17"
 y="77"
 id="26"
-style="fill:#7cd857;stroke:none;" />
+style="fill:#f34f3f;stroke:none;" />
 <rect
 width="57"
 height="17"
@@ -270,7 +270,7 @@ ry="5"
 x="77"
 y="77"
 id="27"
-style="fill:#7cd857;stroke:none;" />
+style="fill:#f34f3f;stroke:none;" />
 <rect
 width="57"
 height="17"
@@ -279,7 +279,7 @@ ry="5"
 x="137"
 y="77"
 id="28"
-style="fill:#43c1dd;stroke:none;" />
+style="fill:#b1410d;stroke:none;" />
 <rect
 width="17"
 height="17"
@@ -288,7 +288,7 @@ ry="5"
 x="197"
 y="77"
 id="29"
-style="fill:#43c1dd;stroke:none;" />
+style="fill:#b1410d;stroke:none;" />
 <rect
 width="57"
 height="17"
@@ -297,7 +297,7 @@ ry="5"
 x="217"
 y="77"
 id="30"
-style="fill:#43c1dd;stroke:none;" />
+style="fill:#b1410d;stroke:none;" />
 <rect
 width="17"
 height="17"
@@ -306,7 +306,7 @@ ry="5"
 x="277"
 y="77"
 id="31"
-style="fill:#43c1dd;stroke:none;" />
+style="fill:#b1410d;stroke:none;" />
 <rect
 width="57"
 height="17"
@@ -315,7 +315,7 @@ ry="5"
 x="297"
 y="77"
 id="32"
-style="fill:#e4a3aa;stroke:none;" />
+style="fill:#5f9b76;stroke:none;" />
 
 </g>
 <g transform="translate(20,0)">
@@ -327,7 +327,7 @@ ry="5"
 x="17"
 y="97"
 id="33"
-style="fill:#e4a3aa;stroke:none;" />
+style="fill:#5f9b76;stroke:none;" />
 <rect
 width="57"
 height="17"
@@ -336,7 +336,7 @@ ry="5"
 x="77"
 y="97"
 id="34"
-style="fill:#e4a3aa;stroke:none;" />
+style="fill:#5f9b76;stroke:none;" />
 <rect
 width="57"
 height="17"
@@ -345,7 +345,7 @@ ry="5"
 x="137"
 y="97"
 id="35"
-style="fill:#59d208;stroke:none;" />
+style="fill:#fa4759;stroke:none;" />
 <rect
 width="57"
 height="17"
@@ -354,7 +354,7 @@ ry="5"
 x="197"
 y="97"
 id="36"
-style="fill:#59d208;stroke:none;" />
+style="fill:#fa4759;stroke:none;" />
 <rect
 width="17"
 height="17"
@@ -363,7 +363,7 @@ ry="5"
 x="257"
 y="97"
 id="37"
-style="fill:#7caae9;stroke:none;" />
+style="fill:#15a416;stroke:none;" />
 <rect
 width="57"
 height="17"
@@ -372,7 +372,7 @@ ry="5"
 x="277"
 y="97"
 id="38"
-style="fill:#7caae9;stroke:none;" />
+style="fill:#15a416;stroke:none;" />
 
 </g>
 <g transform="translate(0,0)">
@@ -384,7 +384,7 @@ ry="5"
 x="17"
 y="117"
 id="39"
-style="fill:#7caae9;stroke:none;" />
+style="fill:#15a416;stroke:none;" />
 <rect
 width="17"
 height="17"
@@ -393,7 +393,7 @@ ry="5"
 x="77"
 y="117"
 id="40"
-style="fill:#7caae9;stroke:none;" />
+style="fill:#15a416;stroke:none;" />
 <rect
 width="17"
 height="17"
@@ -402,7 +402,7 @@ ry="5"
 x="97"
 y="117"
 id="41"
-style="fill:#0fe317;stroke:none;" />
+style="fill:#fd502e;stroke:none;" />
 <rect
 width="17"
 height="17"
@@ -411,7 +411,7 @@ ry="5"
 x="117"
 y="117"
 id="42"
-style="fill:#0fe317;stroke:none;" />
+style="fill:#fd502e;stroke:none;" />
 <rect
 width="57"
 height="17"
@@ -420,7 +420,7 @@ ry="5"
 x="137"
 y="117"
 id="43"
-style="fill:#0fe317;stroke:none;" />
+style="fill:#fd502e;stroke:none;" />
 <rect
 width="57"
 height="17"
@@ -429,7 +429,7 @@ ry="5"
 x="197"
 y="117"
 id="44"
-style="fill:#fb3cb6;stroke:none;" />
+style="fill:#bfd081;stroke:none;" />
 <rect
 width="17"
 height="17"
@@ -438,7 +438,7 @@ ry="5"
 x="257"
 y="117"
 id="45"
-style="fill:#2cad73;stroke:none;" />
+style="fill:#db2e22;stroke:none;" />
 <rect
 width="17"
 height="17"
@@ -447,7 +447,7 @@ ry="5"
 x="277"
 y="117"
 id="46"
-style="fill:#fe1f90;stroke:none;" />
+style="fill:#016206;stroke:none;" />
 <rect
 width="57"
 height="17"
@@ -456,7 +456,7 @@ ry="5"
 x="297"
 y="117"
 id="47"
-style="fill:#fe1f90;stroke:none;" />
+style="fill:#016206;stroke:none;" />
 <rect
 width="17"
 height="17"
@@ -465,7 +465,7 @@ ry="5"
 x="357"
 y="117"
 id="48"
-style="fill:#fe1f90;stroke:none;" />
+style="fill:#016206;stroke:none;" />
 
 </g>
 <g transform="translate(0,0)">
@@ -477,7 +477,7 @@ ry="5"
 x="17"
 y="137"
 id="49"
-style="fill:#f792f2;stroke:none;" />
+style="fill:#e2a7b9;stroke:none;" />
 <rect
 width="17"
 height="17"
@@ -486,7 +486,7 @@ ry="5"
 x="77"
 y="137"
 id="50"
-style="fill:#f792f2;stroke:none;" />
+style="fill:#e2a7b9;stroke:none;" />
 <rect
 width="57"
 height="17"
@@ -495,7 +495,7 @@ ry="5"
 x="97"
 y="137"
 id="51"
-style="fill:#f792f2;stroke:none;" />
+style="fill:#e2a7b9;stroke:none;" />
 <rect
 width="17"
 height="17"
@@ -504,7 +504,7 @@ ry="5"
 x="157"
 y="137"
 id="52"
-style="fill:#0fd00e;stroke:none;" />
+style="fill:#63b530;stroke:none;" />
 <rect
 width="17"
 height="17"
@@ -513,7 +513,7 @@ ry="5"
 x="177"
 y="137"
 id="53"
-style="fill:#0fd00e;stroke:none;" />
+style="fill:#63b530;stroke:none;" />
 <rect
 width="57"
 height="17"
@@ -522,7 +522,7 @@ ry="5"
 x="197"
 y="137"
 id="54"
-style="fill:#0fd00e;stroke:none;" />
+style="fill:#63b530;stroke:none;" />
 <rect
 width="57"
 height="17"
@@ -531,7 +531,7 @@ ry="5"
 x="257"
 y="137"
 id="55"
-style="fill:#fc7228;stroke:none;" />
+style="fill:#c95e0f;stroke:none;" />
 <rect
 width="17"
 height="17"
@@ -540,7 +540,7 @@ ry="5"
 x="317"
 y="137"
 id="56"
-style="fill:#fc7228;stroke:none;" />
+style="fill:#c95e0f;stroke:none;" />
 <rect
 width="17"
 height="17"
@@ -549,7 +549,7 @@ ry="5"
 x="337"
 y="137"
 id="57"
-style="fill:#ace8ad;stroke:none;" />
+style="fill:#02bd58;stroke:none;" />
 <rect
 width="17"
 height="17"
@@ -558,7 +558,7 @@ ry="5"
 x="357"
 y="137"
 id="58"
-style="fill:#ace8ad;stroke:none;" />
+style="fill:#02bd58;stroke:none;" />
 
 </g>
 <g transform="translate(0,0)">
@@ -570,7 +570,7 @@ ry="5"
 x="17"
 y="157"
 id="59"
-style="fill:#ace8ad;stroke:none;" />
+style="fill:#02bd58;stroke:none;" />
 <rect
 width="57"
 height="17"
@@ -579,7 +579,7 @@ ry="5"
 x="37"
 y="157"
 id="60"
-style="fill:#4c8af7;stroke:none;" />
+style="fill:#fb8c42;stroke:none;" />
 <rect
 width="17"
 height="17"
@@ -588,7 +588,7 @@ ry="5"
 x="97"
 y="157"
 id="61"
-style="fill:#7e73fb;stroke:none;" />
+style="fill:#c9750c;stroke:none;" />
 <rect
 width="17"
 height="17"
@@ -597,7 +597,7 @@ ry="5"
 x="117"
 y="157"
 id="62"
-style="fill:#7e73fb;stroke:none;" />
+style="fill:#c9750c;stroke:none;" />
 <rect
 width="57"
 height="17"
@@ -606,7 +606,7 @@ ry="5"
 x="137"
 y="157"
 id="63"
-style="fill:#7e73fb;stroke:none;" />
+style="fill:#c9750c;stroke:none;" />
 <rect
 width="57"
 height="17"
@@ -615,7 +615,7 @@ ry="5"
 x="197"
 y="157"
 id="64"
-style="fill:#30e062;stroke:none;" />
+style="fill:#11c73d;stroke:none;" />
 <rect
 width="17"
 height="17"
@@ -624,7 +624,7 @@ ry="5"
 x="257"
 y="157"
 id="65"
-style="fill:#30e062;stroke:none;" />
+style="fill:#11c73d;stroke:none;" />
 <rect
 width="57"
 height="17"
@@ -633,7 +633,7 @@ ry="5"
 x="277"
 y="157"
 id="66"
-style="fill:#f26209;stroke:none;" />
+style="fill:#b96d40;stroke:none;" />
 <rect
 width="17"
 height="17"
@@ -642,7 +642,7 @@ ry="5"
 x="337"
 y="157"
 id="67"
-style="fill:#f26209;stroke:none;" />
+style="fill:#b96d40;stroke:none;" />
 <rect
 width="17"
 height="17"
@@ -651,7 +651,7 @@ ry="5"
 x="357"
 y="157"
 id="68"
-style="fill:#f26209;stroke:none;" />
+style="fill:#b96d40;stroke:none;" />
 
 </g>
 <g transform="translate(0,0)">
@@ -663,7 +663,7 @@ ry="5"
 x="17"
 y="177"
 id="69"
-style="fill:#e57e18;stroke:none;" />
+style="fill:#fe701c;stroke:none;" />
 <rect
 width="17"
 height="17"
@@ -672,7 +672,7 @@ ry="5"
 x="37"
 y="177"
 id="70"
-style="fill:#e57e18;stroke:none;" />
+style="fill:#fe701c;stroke:none;" />
 <rect
 width="17"
 height="17"
@@ -681,7 +681,7 @@ ry="5"
 x="57"
 y="177"
 id="71"
-style="fill:#e57e18;stroke:none;" />
+style="fill:#fe701c;stroke:none;" />
 <rect
 width="57"
 height="17"
@@ -690,7 +690,7 @@ ry="5"
 x="77"
 y="177"
 id="72"
-style="fill:#1ff41e;stroke:none;" />
+style="fill:#d1ffe2;stroke:none;" />
 <rect
 width="17"
 height="17"
@@ -699,7 +699,7 @@ ry="5"
 x="137"
 y="177"
 id="73"
-style="fill:#1ff41e;stroke:none;" />
+style="fill:#d1ffe2;stroke:none;" />
 <rect
 width="57"
 height="17"
@@ -708,7 +708,7 @@ ry="5"
 x="157"
 y="177"
 id="74"
-style="fill:#1ff41e;stroke:none;" />
+style="fill:#d1ffe2;stroke:none;" />
 <rect
 width="17"
 height="17"
@@ -717,7 +717,7 @@ ry="5"
 x="217"
 y="177"
 id="75"
-style="fill:#1ff41e;stroke:none;" />
+style="fill:#d1ffe2;stroke:none;" />
 <rect
 width="17"
 height="17"
@@ -726,7 +726,7 @@ ry="5"
 x="237"
 y="177"
 id="76"
-style="fill:#fd0d0b;stroke:none;" />
+style="fill:#d74f28;stroke:none;" />
 <rect
 width="17"
 height="17"
@@ -735,7 +735,7 @@ ry="5"
 x="257"
 y="177"
 id="77"
-style="fill:#fd0d0b;stroke:none;" />
+style="fill:#d74f28;stroke:none;" />
 <rect
 width="17"
 height="17"
@@ -744,7 +744,7 @@ ry="5"
 x="277"
 y="177"
 id="78"
-style="fill:#fd0d0b;stroke:none;" />
+style="fill:#d74f28;stroke:none;" />
 <rect
 width="17"
 height="17"
@@ -753,7 +753,7 @@ ry="5"
 x="297"
 y="177"
 id="79"
-style="fill:#fd0d0b;stroke:none;" />
+style="fill:#d74f28;stroke:none;" />
 <rect
 width="57"
 height="17"
@@ -762,7 +762,7 @@ ry="5"
 x="317"
 y="177"
 id="80"
-style="fill:#9fcd08;stroke:none;" />
+style="fill:#3ea8c4;stroke:none;" />
 
 </g>
 <g transform="translate(0,0)">
@@ -774,7 +774,7 @@ ry="5"
 x="17"
 y="197"
 id="81"
-style="fill:#9fcd08;stroke:none;" />
+style="fill:#3ea8c4;stroke:none;" />
 <rect
 width="57"
 height="17"
@@ -783,7 +783,7 @@ ry="5"
 x="77"
 y="197"
 id="82"
-style="fill:#9fcd08;stroke:none;" />
+style="fill:#3ea8c4;stroke:none;" />
 <rect
 width="17"
 height="17"
@@ -792,7 +792,7 @@ ry="5"
 x="137"
 y="197"
 id="83"
-style="fill:#9fcd08;stroke:none;" />
+style="fill:#3ea8c4;stroke:none;" />
 <rect
 width="57"
 height="17"
@@ -801,7 +801,7 @@ ry="5"
 x="157"
 y="197"
 id="84"
-style="fill:#2aa7e4;stroke:none;" />
+style="fill:#e7363b;stroke:none;" />
 <rect
 width="17"
 height="17"
@@ -810,7 +810,7 @@ ry="5"
 x="217"
 y="197"
 id="85"
-style="fill:#2aa7e4;stroke:none;" />
+style="fill:#e7363b;stroke:none;" />
 <rect
 width="17"
 height="17"
@@ -819,7 +819,7 @@ ry="5"
 x="237"
 y="197"
 id="86"
-style="fill:#ccdc47;stroke:none;" />
+style="fill:#899013;stroke:none;" />
 <rect
 width="17"
 height="17"
@@ -828,7 +828,7 @@ ry="5"
 x="257"
 y="197"
 id="87"
-style="fill:#ccdc47;stroke:none;" />
+style="fill:#899013;stroke:none;" />
 <rect
 width="17"
 height="17"
@@ -837,7 +837,7 @@ ry="5"
 x="277"
 y="197"
 id="88"
-style="fill:#ccdc47;stroke:none;" />
+style="fill:#899013;stroke:none;" />
 <rect
 width="17"
 height="17"
@@ -846,7 +846,7 @@ ry="5"
 x="297"
 y="197"
 id="89"
-style="fill:#ccdc47;stroke:none;" />
+style="fill:#899013;stroke:none;" />
 <rect
 width="17"
 height="17"
@@ -855,7 +855,7 @@ ry="5"
 x="317"
 y="197"
 id="90"
-style="fill:#f03afb;stroke:none;" />
+style="fill:#f06887;stroke:none;" />
 <rect
 width="17"
 height="17"
@@ -864,7 +864,7 @@ ry="5"
 x="337"
 y="197"
 id="91"
-style="fill:#44fbd7;stroke:none;" />
+style="fill:#61743c;stroke:none;" />
 <rect
 width="17"
 height="17"
@@ -873,7 +873,7 @@ ry="5"
 x="357"
 y="197"
 id="92"
-style="fill:#44fbd7;stroke:none;" />
+style="fill:#61743c;stroke:none;" />
 
 </g>
 <g transform="translate(0,0)">
@@ -885,7 +885,7 @@ ry="5"
 x="17"
 y="217"
 id="93"
-style="fill:#ff8635;stroke:none;" />
+style="fill:#fba0c4;stroke:none;" />
 <rect
 width="17"
 height="17"
@@ -894,7 +894,7 @@ ry="5"
 x="77"
 y="217"
 id="94"
-style="fill:#fd2b49;stroke:none;" />
+style="fill:#dc89ac;stroke:none;" />
 <rect
 width="17"
 height="17"
@@ -903,7 +903,7 @@ ry="5"
 x="97"
 y="217"
 id="95"
-style="fill:#fd2b49;stroke:none;" />
+style="fill:#dc89ac;stroke:none;" />
 <rect
 width="17"
 height="17"
@@ -912,7 +912,7 @@ ry="5"
 x="117"
 y="217"
 id="96"
-style="fill:#fd2b49;stroke:none;" />
+style="fill:#dc89ac;stroke:none;" />
 <rect
 width="57"
 height="17"
@@ -921,7 +921,7 @@ ry="5"
 x="137"
 y="217"
 id="97"
-style="fill:#bfc167;stroke:none;" />
+style="fill:#38f11e;stroke:none;" />
 <rect
 width="17"
 height="17"
@@ -930,7 +930,7 @@ ry="5"
 x="197"
 y="217"
 id="98"
-style="fill:#bfc167;stroke:none;" />
+style="fill:#38f11e;stroke:none;" />
 <rect
 width="57"
 height="17"
@@ -939,7 +939,7 @@ ry="5"
 x="217"
 y="217"
 id="99"
-style="fill:#bfc167;stroke:none;" />
+style="fill:#38f11e;stroke:none;" />
 <rect
 width="17"
 height="17"
@@ -948,7 +948,7 @@ ry="5"
 x="277"
 y="217"
 id="100"
-style="fill:#bfc167;stroke:none;" />
+style="fill:#38f11e;stroke:none;" />
 <rect
 width="17"
 height="17"
@@ -957,7 +957,7 @@ ry="5"
 x="297"
 y="217"
 id="101"
-style="fill:#ed3ccc;stroke:none;" />
+style="fill:#851007;stroke:none;" />
 <rect
 width="17"
 height="17"
@@ -966,7 +966,7 @@ ry="5"
 x="317"
 y="217"
 id="102"
-style="fill:#ed3ccc;stroke:none;" />
+style="fill:#851007;stroke:none;" />
 <rect
 width="17"
 height="17"
@@ -975,7 +975,7 @@ ry="5"
 x="337"
 y="217"
 id="103"
-style="fill:#ed3ccc;stroke:none;" />
+style="fill:#851007;stroke:none;" />
 <rect
 width="17"
 height="17"
@@ -984,7 +984,7 @@ ry="5"
 x="357"
 y="217"
 id="104"
-style="fill:#ed3ccc;stroke:none;" />
+style="fill:#851007;stroke:none;" />
 
 </g>
 <g transform="translate(10,0)">
@@ -996,7 +996,7 @@ ry="5"
 x="17"
 y="237"
 id="105"
-style="fill:#05d0b2;stroke:none;" />
+style="fill:#40d6ad;stroke:none;" />
 <rect
 width="57"
 height="17"
@@ -1005,7 +1005,7 @@ ry="5"
 x="37"
 y="237"
 id="106"
-style="fill:#05d0b2;stroke:none;" />
+style="fill:#40d6ad;stroke:none;" />
 <rect
 width="17"
 height="17"
@@ -1014,7 +1014,7 @@ ry="5"
 x="97"
 y="237"
 id="107"
-style="fill:#d68c94;stroke:none;" />
+style="fill:#db778b;stroke:none;" />
 <rect
 width="17"
 height="17"
@@ -1023,7 +1023,7 @@ ry="5"
 x="117"
 y="237"
 id="108"
-style="fill:#d68c94;stroke:none;" />
+style="fill:#db778b;stroke:none;" />
 <rect
 width="57"
 height="17"
@@ -1032,7 +1032,7 @@ ry="5"
 x="137"
 y="237"
 id="109"
-style="fill:#d68c94;stroke:none;" />
+style="fill:#db778b;stroke:none;" />
 <rect
 width="17"
 height="17"
@@ -1041,7 +1041,7 @@ ry="5"
 x="197"
 y="237"
 id="110"
-style="fill:#d68c94;stroke:none;" />
+style="fill:#db778b;stroke:none;" />
 <rect
 width="17"
 height="17"
@@ -1050,7 +1050,7 @@ ry="5"
 x="217"
 y="237"
 id="111"
-style="fill:#effe8b;stroke:none;" />
+style="fill:#47c11a;stroke:none;" />
 <rect
 width="17"
 height="17"
@@ -1059,7 +1059,7 @@ ry="5"
 x="237"
 y="237"
 id="112"
-style="fill:#effe8b;stroke:none;" />
+style="fill:#47c11a;stroke:none;" />
 <rect
 width="57"
 height="17"
@@ -1068,7 +1068,7 @@ ry="5"
 x="257"
 y="237"
 id="113"
-style="fill:#effe8b;stroke:none;" />
+style="fill:#47c11a;stroke:none;" />
 <rect
 width="17"
 height="17"
@@ -1077,7 +1077,7 @@ ry="5"
 x="317"
 y="237"
 id="114"
-style="fill:#effe8b;stroke:none;" />
+style="fill:#47c11a;stroke:none;" />
 <rect
 width="17"
 height="17"
@@ -1086,7 +1086,7 @@ ry="5"
 x="337"
 y="237"
 id="115"
-style="fill:#ae81dc;stroke:none;" />
+style="fill:#e29ee0;stroke:none;" />
 
 </g>
 <g transform="translate(140,0)">
@@ -1098,7 +1098,7 @@ ry="5"
 x="17"
 y="257"
 id="116"
-style="fill:#83e84a;stroke:none;" />
+style="fill:#ba930b;stroke:none;" />
 <rect
 width="17"
 height="17"
@@ -1107,7 +1107,7 @@ ry="5"
 x="77"
 y="257"
 id="117"
-style="fill:#83e84a;stroke:none;" />
+style="fill:#ba930b;stroke:none;" />
 
 </g>
 </g></g><g id="background">
@@ -1117,7 +1117,7 @@ height="291"
 x="0"
 y="0"
 id="-1"
-style="stroke-width: 0px; fill: #000000;"/>
+style="stroke-width: 0px; fill: #000080;"/>
 </g></defs>
 <use xlink:href="#background" />
 <use xlink:href="#foreground" />
