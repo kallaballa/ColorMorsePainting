@@ -13,12 +13,12 @@ DEPS    := ${SRCS:.cpp=.dep}
 UNAME := $(shell uname)
 
 ifeq ($(UNAME), Darwin)
-	CXXFLAGS = -std=c++0x -pedantic -Wall -O3
+	CXXFLAGS = -std=c++0x -pedantic -Wall -O3 -I/usr/local/include
 else
 	CXXFLAGS = -std=c++0x -pedantic -Wall -O3
 endif
 
-LIBS    = -lboost_program_options
+LIBS    = -lboost_program_options -L/usr/local/lib
 
 .PHONY: all clean distclean 
 
