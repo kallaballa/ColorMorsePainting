@@ -41,7 +41,7 @@ ${DEPS}: %.dep: %.cpp Makefile
 	${CXX} ${CXXFLAGS} -MM $< > $@ 
 
 clean:
-	rm -f *~ *.o *.dep ${TARGET} colorMorsePainting.js colorMorsePainting.html
+	rm -f src/*~ src/*.o src/*.dep ${TARGET} colorMorsePainting.js colorMorsePainting.html
 
 distclean: clean
 
