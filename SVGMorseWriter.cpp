@@ -24,11 +24,12 @@
 
 namespace kallaballa {
 
-  SVGMorseWriter::SVGMorseWriter(std::ostream& os, Alignment align, RGBColor background, size_t roundedRadius, size_t dotsPerRow, size_t dotWidthMM, size_t dotMarginMM, size_t canvasMarginMM) :
+  SVGMorseWriter::SVGMorseWriter(std::ostream& os, Alignment align, RGBColor background, size_t roundedRadiusX, size_t roundedRadiusY, size_t dotsPerRow, size_t dotWidthMM, size_t dotMarginMM, size_t canvasMarginMM) :
     os(os),
     align_(align),
     background_(background),
-    roundedRadius_(roundedRadius),
+    roundedRadiusX_(roundedRadiusX),
+    roundedRadiusY_(roundedRadiusY),
     x_(0),
     y_(0),
     dotsPerRow_(dotsPerRow),
@@ -116,8 +117,8 @@ namespace kallaballa {
     this->lineBuffer_ << "<rect" << "\n";
     this->lineBuffer_ << "width=\"" << dotWidthPix_ << "\"" << '\n';
     this->lineBuffer_ << "height=\"" << dotWidthPix_ << "\"" << '\n';
-    this->lineBuffer_ << "rx=\"" << roundedRadius_ << "\"" << '\n';
-    this->lineBuffer_ << "ry=\"" << roundedRadius_ << "\"" << '\n';
+    this->lineBuffer_ << "rx=\"" << roundedRadiusX_ << "\"" << '\n';
+    this->lineBuffer_ << "ry=\"" << roundedRadiusY_ << "\"" << '\n';
     this->lineBuffer_ << "x=\"" << canvasMarginPix_ + dotWidthPix_ * x_ + dotMarginPix_ * x_ << "\"" << '\n';
     this->lineBuffer_ << "y=\"" << canvasMarginPix_ + dotWidthPix_ * y_ + dotMarginPix_ * y_ << "\"" << '\n';
     this->lineBuffer_ << "id=\"" << glyphID++ << "\"" << '\n';
@@ -139,8 +140,8 @@ namespace kallaballa {
     this->lineBuffer_ << "<rect" << '\n';
     this->lineBuffer_ << "width=\"" << dotWidthPix_ * 3 + dotMarginPix_ * 2 << "\"" << '\n';
     this->lineBuffer_ << "height=\"" << dotWidthPix_ << "\"" << '\n';
-    this->lineBuffer_ << "rx=\"" << roundedRadius_ << "\"" << '\n';
-    this->lineBuffer_ << "ry=\"" << roundedRadius_ << "\"" << '\n';
+    this->lineBuffer_ << "rx=\"" << roundedRadiusX_ << "\"" << '\n';
+    this->lineBuffer_ << "ry=\"" << roundedRadiusY_ << "\"" << '\n';
     this->lineBuffer_ << "x=\"" << canvasMarginPix_ + dotWidthPix_ * x_ + dotMarginPix_ * x_ << "\"" << '\n';
     this->lineBuffer_ << "y=\"" << canvasMarginPix_ + dotWidthPix_ * y_ + dotMarginPix_ * y_ << "\"" << '\n';
     this->lineBuffer_ << "id=\"" << glyphID++ << "\"" << '\n';
@@ -162,8 +163,8 @@ namespace kallaballa {
     this->lineBuffer_ << "<rect" << '\n';
     this->lineBuffer_ << "width=\"" << dotWidthPix_ << "\"" << '\n';
     this->lineBuffer_ << "height=\"" << dotWidthPix_ << "\"" << '\n';
-    this->lineBuffer_ << "rx=\"" << roundedRadius_ << "\"" << '\n';
-    this->lineBuffer_ << "ry=\"" << roundedRadius_ << "\"" << '\n';
+    this->lineBuffer_ << "rx=\"" << roundedRadiusX_ << "\"" << '\n';
+    this->lineBuffer_ << "ry=\"" << roundedRadiusY_ << "\"" << '\n';
     this->lineBuffer_ << "x=\"" << canvasMarginPix_ + dotWidthPix_ * x_ + dotMarginPix_ * x_ << "\"" << '\n';
     this->lineBuffer_ << "y=\"" << canvasMarginPix_ + dotWidthPix_ * y_ + dotMarginPix_ * y_ << "\"" << '\n';
     this->lineBuffer_ << "id=\"" << glyphID++ << "\"" << '\n';

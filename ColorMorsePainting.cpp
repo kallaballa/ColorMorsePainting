@@ -32,7 +32,7 @@
 namespace po = boost::program_options;
 
 namespace kallaballa {
-  void paint(std::wstring wtext, ColorSelector& selector, SVGMorseWriter& writer, MorseTranslator& morseTrans, bool verbose, bool spacing) {
+  void paint(std::wistream& in, ColorSelector& selector, SVGMorseWriter& writer, MorseTranslator& morseTrans, bool verbose, bool spacing) {
     std::wstring line;
     std::wstring morse;
     RGBColor color = selector.next();
@@ -42,28 +42,26 @@ namespace kallaballa {
     std::wcin.imbue(loc);
     std::wcout.imbue(loc);
 
-    std::wistringstream ws(wtext);
-
-     while(std::getline(ws, line)) {
-       for(const wchar_t& c : line) {
-         morse = morseTrans.translate((wchar_t)std::towupper(c));
-         if(verbose)
-           std::wcerr << morse << L" ";
-
-         for (const wchar_t& m : morse) {
-           if(m == L'-') {
-             writer.writeDash(color);
-           } else if(m == L'.'){
-             writer.writeDot(color);
-           } else if(spacing && m == L' '){
-             writer.writeSpace();
-           }
-         }
-         color = selector.next();
-       }
+    while(std::getline(in, line)) {
+     for(const wchar_t& c : line) {
+       morse = morseTrans.translate((wchar_t)std::towupper(c));
        if(verbose)
-         std::wcerr << std::endl;
+         std::wcerr << morse << L" ";
+
+       for (const wchar_t& m : morse) {
+         if(m == L'-') {
+           writer.writeDash(color);
+         } else if(m == L'.'){
+           writer.writeDot(color);
+         } else if(spacing && m == L' '){
+           writer.writeSpace();
+         }
+       }
+       color = selector.next();
      }
+     if(verbose)
+       std::wcerr << std::endl;
+    }
   }
 }
 
@@ -72,7 +70,8 @@ int main(int argc, char** argv) {
   size_t dotWidthMM = 5;
   size_t dotMarginMM = 1;
   size_t canvasMarginMM = 5;
-  size_t roundedRadius = 0;
+  size_t roundedRadiusX = 0;
+  size_t roundedRadiusY = 0;
   std::string paletteFile = "colors.txt";
   std::string outputFile = "-";
   std::string text;
@@ -81,6 +80,7 @@ int main(int argc, char** argv) {
   bool verbose = false;
   bool randomColors = false;
   bool spacing = false;
+  bool stdin = false;
 
   po::options_description genericDesc("Options");
   genericDesc.add_options()
@@ -90,11 +90,13 @@ int main(int argc, char** argv) {
     ("dot-width,w", po::value<size_t>(&dotWidthMM)->default_value(dotWidthMM), "Width of a dot in millimeters")
     ("dot-margin,m", po::value<size_t>(&dotMarginMM)->default_value(dotMarginMM), "Width of a dot margin in millimeters")
     ("canvas-margin,c", po::value<size_t>(&canvasMarginMM)->default_value(canvasMarginMM), "Width of the margin of the painting")
-    ("rounded-corner,x", po::value<size_t>(&roundedRadius)->default_value(roundedRadius), "The rounded corner radius of the dot rectangles")
+    ("rounded-radius-x,x", po::value<size_t>(&roundedRadiusX)->default_value(roundedRadiusX), "The rounded corner radius (x) of the dot rectangles")
+    ("rounded-radius-y,y", po::value<size_t>(&roundedRadiusY)->default_value(roundedRadiusY), "The rounded corner radius (y) of the dot rectangles")
     ("alignment,a", po::value<std::string>(&strAlign)->default_value(strAlign), "The alignment of morse dot lines which are not using the full width. Either LEFT, CENTER or RIGHT")
     ("output-file,f", po::value<std::string>(&outputFile)->default_value(outputFile), "The path of the output file. Default is stdout")
     ("palette-file,p", po::value<std::string>(&paletteFile)->default_value(paletteFile), "A file containing the color palette to be used for the painting.")
     ("background,b", po::value<std::string>(&backgroundHex)->default_value(backgroundHex), "The background color in hex RGB (24 bit)")
+    ("stdin,i", "Read input text from stdin")
     ("random-colors,r", "Don't use a predefined palette. Instead use random colors")
     ("spacing,s", "Leave a blank dot between word boundaries");
 
@@ -115,8 +117,9 @@ int main(int argc, char** argv) {
   po::store(po::command_line_parser(argc, argv).options(cmdline_options).positional(p).run(), vm);
   po::notify(vm);
 
-  if (vm.count("help") || text.empty()) {
-      std::cerr << "Usage: colorMorsePainting [options] [text]\n";
+  if (vm.count("help") || (text.empty() && !vm.count("stdin"))) {
+      std::cerr << "Usage: colorMorsePainting [OPTION]... TEXT\n";
+      std::cerr << "       colorMorsePainting [OPTION]... -i\n";
       std::cerr << visible;
       return 0;
   }
@@ -126,17 +129,26 @@ int main(int argc, char** argv) {
   verbose = vm.count("verbose");
   randomColors = vm.count("random-colors");
   spacing = vm.count("spacing");
-  std::wstring wtext = utf8_to_utf32(text);
   RGBColor bgColor = strtol(backgroundHex.c_str(), NULL, 16);
+  stdin = vm.count("stdin");
 
-  bool deleteStream = false;
+  bool deleteInStream = false;
+  bool deleteOutStream = false;
+  std::wistream* in;
   std::ostream* out;
+
+  if(stdin) {
+    in = &std::wcin;
+  } else {
+    in = new std::wistringstream(utf8_to_utf32(text));
+    deleteInStream = true;
+  }
 
   if(outputFile == "-") {
     out = &std::cout;
   } else {
-    deleteStream = true;
     out = new std::ofstream(outputFile);
+    deleteOutStream = true;
   }
 
   ColorSelector* selector;
@@ -160,12 +172,15 @@ int main(int argc, char** argv) {
     exit(1);
   }
 
-  SVGMorseWriter writer(*out, align, bgColor, roundedRadius, dotsPerRow, dotWidthMM, dotMarginMM, canvasMarginMM);
+  SVGMorseWriter writer(*out, align, bgColor, roundedRadiusX, roundedRadiusY, dotsPerRow, dotWidthMM, dotMarginMM, canvasMarginMM);
   MorseTranslator morseTrans;
 
-  paint(wtext, *selector, writer, morseTrans, verbose, spacing);
+  paint(*in, *selector, writer, morseTrans, verbose, spacing);
 
-  if(deleteStream)
+  if(deleteInStream)
+    delete in;
+
+  if(deleteOutStream)
     delete out;
 
   delete selector;
