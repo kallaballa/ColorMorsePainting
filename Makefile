@@ -6,7 +6,7 @@ TARGET  := colorMorsePainting.html
 else
 TARGET  := colorMorsePainting 
 endif
-SRCS    := ColorMorsePainting.cpp Util.cpp Morse.cpp Color.cpp SVGMorseWriter.cpp CIEDE2000.cpp
+SRCS    := src/ColorMorsePainting.cpp src/Util.cpp src/Morse.cpp src/Color.cpp src/SVGMorseWriter.cpp src/CIEDE2000.cpp
 OBJS    := ${SRCS:.cpp=.o} 
 DEPS    := ${SRCS:.cpp=.dep} 
 
