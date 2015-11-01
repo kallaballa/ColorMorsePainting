@@ -18,7 +18,7 @@ For OpenSuse:
 
     sudo zypper in libboost_program_options1_54_0
 
-To build it simply run 'make' in the base directory.
+To build it, simply run 'make' in the base directory.
 
     git clone https://github.com/kallaballa/ColorMorsePainting.git
     cd ColorMorsePainting
@@ -27,7 +27,8 @@ To build it simply run 'make' in the base directory.
 ## Color Palette
 
 The program by default uses a predefined color palette stored as line separated hex rgb values in the file "colors.txt".
-You can specify a different palette file with the "-p" flag. Using the CIEDE20000 color difference metric the program make
+You can specify a different palette file with the "-p" flag. 
+Using the [CIEDE20000](https://en.wikipedia.org/wiki/Color_difference#CIEDE2000) color difference metric the program make
 sure that adjancend morse letters have a sufficent color contrast (making them easily distinguishable) to each other as well
 as to the background color.
 Please note that the program can be configured to use random colors from the whole 24bit RGB spectrum by using the "-r" flag.
