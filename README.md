@@ -14,6 +14,10 @@ For Debian/Ubuntu:
 
     sudo apt-get install libboost-program-options-dev
 
+For Fedora
+
+    sudo dnf install boost-devel
+
 For OpenSuse:
 
     sudo zypper in libboost_program_options1_54_0
