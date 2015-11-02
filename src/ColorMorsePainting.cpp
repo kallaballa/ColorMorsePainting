@@ -37,11 +37,6 @@ namespace kallaballa {
     std::wstring morse;
     RGBColor color = selector.next();
 
-    setlocale(LC_ALL, "");
-    std::locale loc("");
-    std::wcin.imbue(loc);
-    std::wcout.imbue(loc);
-
     while(std::getline(in, line)) {
      for(const wchar_t& c : line) {
        morse = morseTrans.translate((wchar_t)std::towupper(c));
@@ -66,6 +61,11 @@ namespace kallaballa {
 }
 
 int main(int argc, char** argv) {
+  setlocale(LC_ALL, "");
+  std::locale loc("");
+  std::wcin.imbue(loc);
+  std::wcout.imbue(loc);
+
   size_t dotsPerRow = 18;
   size_t dotWidthMM = 5;
   size_t dotMarginMM = 1;
@@ -143,6 +143,7 @@ int main(int argc, char** argv) {
     in = &std::wcin;
   } else {
     in = new std::wistringstream(utf8_to_utf32(text));
+    in->imbue(loc);
     deleteInStream = true;
   }
 
@@ -150,6 +151,7 @@ int main(int argc, char** argv) {
     out = &std::cout;
   } else {
     out = new std::ofstream(outputFile);
+    out->imbue(loc);
     deleteOutStream = true;
   }
 

@@ -14,7 +14,7 @@ For Debian/Ubuntu:
 
     sudo apt-get install libboost-program-options-dev
 
-For Fedora
+For Fedora:
 
     sudo dnf install boost-devel
 
